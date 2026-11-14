@@ -213,10 +213,16 @@ footer {
 </footer>
 
 <script>
-function learn(section) {
-  alert("Welcome to " + section + "! More lessons coming soon.");
-}
 
+function learn(section) {
+  if (section === "ABC Adventure") {
+    document.getElementById("abc-adventure").scrollIntoView({
+      behavior: "smooth"
+    });
+  } else {
+    alert(section + " lessons are coming soon!");
+  }
+}
 function answer(correct) {
   const result = document.getElementById("result");
 
