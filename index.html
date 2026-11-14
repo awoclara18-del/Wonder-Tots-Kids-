@@ -227,7 +227,69 @@ function answer(correct) {
   }
 }
 </script>
+<section id="abc-adventure">
+  <h2>🌈 ABC Adventure</h2>
+  <p>Come and learn your ABCs with Wonder Tots Kids!</p>
 
+  <div class="abc-card">
+    <h3> A is for Apple 🍎</h3>
+    <p>A is the first letter of the alphabet.</p>
+    <button onclick="speakLetter('A is for Apple')">
+      🔊 Listen
+    </button>
+  </div>
+
+  <div class="abc-card">
+    <h3>B is for Ball ⚽</h3>
+    <p>B is the second letter of the alphabet.</p>
+    <button onclick="speakLetter('B is for Ball')">
+      🔊 Listen
+    </button>
+  </div>
+</section>
+
+<style>
+#abc-adventure {
+  text-align: center;
+  padding: 30px 15px;
+  background: #fff4d6;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.abc-card {
+  background: white;
+  padding: 20px;
+  margin: 15px auto;
+  border-radius: 15px;
+  max-width: 350px;
+  box-shadow: 0 3px 10px #ddd;
+}
+
+.abc-card h3 {
+  color: #ff7b54;
+  font-size: 25px;
+}
+
+.abc-card button {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-size: 16px;
+}
+</style>
+
+<script>
+function speakLetter(text) {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  speech.rate = 0.85;
+  speech.pitch = 1.2;
+  speechSynthesis.speak(speech);
+}
+</script>
 </body>
 </html>
 
