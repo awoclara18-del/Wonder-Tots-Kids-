@@ -1,1 +1,233 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wonder Tots Kids</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff9ed;
+  color: #34345c;
+}
+
+header {
+  background: #7554d9;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+header h1 {
+  font-size: 32px;
+  margin: 5px;
+}
+
+header p {
+  font-size: 16px;
+}
+
+nav {
+  background: white;
+  padding: 15px 5px;
+  text-align: center;
+}
+
+nav a {
+  color: #7554d9;
+  text-decoration: none;
+  margin: 8px;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 35px 15px;
+}
+
+.hero h2 {
+  color: #f28b35;
+  font-size: 27px;
+}
+
+.hero button {
+  background: #ff9e44;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 25px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.activities {
+  padding: 20px;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 20px 10px;
+  border-radius: 18px;
+  box-shadow: 0 3px 10px #ddd;
+}
+
+.card .emoji {
+  font-size: 45px;
+}
+
+.card h3 {
+  color: #7554d9;
+}
+
+.card button {
+  background: #7554d9;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.game {
+  background: #e9f7ff;
+  margin: 25px 15px;
+  padding: 25px 15px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.game button {
+  background: white;
+  border: 2px solid #7554d9;
+  color: #34345c;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#result {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+footer {
+  background: #7554d9;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌈 Wonder Tots Kids</h1>
+  <p>Explore • Learn • Play!</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#activities">Learning</a>
+  <a href="#game">Games</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Welcome, Little Explorers! 🎉</h2>
+  <p>A wonderful place to learn, discover and have fun.</p>
+  <button onclick="document.getElementById('activities').scrollIntoView()">
+    Start Learning
+  </button>
+</section>
+
+<section class="activities" id="activities">
+  <h2>What Would You Like to Learn? 📚</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="emoji">🔤</div>
+      <h3>ABC Adventure</h3>
+      <p>Discover letters and words.</p>
+      <button onclick="learn('ABC Adventure')">Explore</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🔢</div>
+      <h3>Number Fun</h3>
+      <p>Discover numbers and counting.</p>
+      <button onclick="learn('Number Fun')">Explore</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🦁</div>
+      <h3>Animal World</h3>
+      <p>Meet wonderful animals.</p>
+      <button onclick="learn('Animal World')">Explore</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎨</div>
+      <h3>Colours & Shapes</h3>
+      <p>Discover beautiful colours.</p>
+      <button onclick="learn('Colours & Shapes')">Explore</button>
+    </div>
+
+  </div>
+</section>
+
+<section class="game" id="game">
+  <h2>🐮 Let's Play a Little Game!</h2>
+  <p>Which animal says MOO?</p>
+
+  <button onclick="answer(false)">🐑 Sheep</button>
+  <button onclick="answer(true)">🐄 Cow</button>
+  <button onclick="answer(false)">🐱 Cat</button>
+
+  <p id="result">Choose your answer!</p>
+</section>
+
+<footer>
+  <p>🌟 Wonder Tots Kids</p>
+  <p>Little minds, big discoveries!</p>
+</footer>
+
+<script>
+function learn(section) {
+  alert("Welcome to " + section + "! More lessons coming soon.");
+}
+
+function answer(correct) {
+  const result = document.getElementById("result");
+
+  if (correct) {
+    result.textContent = "🎉 Wonderful! The cow says MOO!";
+  } else {
+    result.textContent = "😊 Nice try! Have another go!";
+  }
+}
+</script>
+
+</body>
+</html>
+
