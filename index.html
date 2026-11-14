@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,16 +27,11 @@ header {
 
 header h1 {
   font-size: 32px;
-  margin: 5px;
-}
-
-header p {
-  font-size: 16px;
 }
 
 nav {
   background: white;
-  padding: 15px 5px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -48,61 +42,71 @@ nav a {
   font-weight: bold;
 }
 
-.hero {
+.hero, .activities {
   text-align: center;
-  padding: 35px 15px;
+  padding: 30px 15px;
 }
 
 .hero h2 {
   color: #f28b35;
-  font-size: 27px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 20px;
+  background: #7554d9;
+  color: white;
+  font-size: 15px;
 }
 
 .hero button {
   background: #ff9e44;
-  color: white;
-  border: none;
-  padding: 14px 25px;
-  border-radius: 25px;
-  font-size: 17px;
-  cursor: pointer;
 }
 
-.activities {
-  padding: 20px;
-  text-align: center;
-}
-
-.cards {
+.cards, #alphabet-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  max-width: 650px;
+  gap: 14px;
+  max-width: 700px;
   margin: auto;
 }
 
-.card {
+.card, .abc-card {
   background: white;
-  padding: 20px 10px;
+  padding: 18px 10px;
   border-radius: 18px;
   box-shadow: 0 3px 10px #ddd;
+  text-align: center;
 }
 
-.card .emoji {
+.card .emoji, .abc-picture {
   font-size: 45px;
 }
 
-.card h3 {
+.card h3, .abc-card h3 {
   color: #7554d9;
 }
 
-.card button {
-  background: #7554d9;
-  color: white;
-  border: none;
-  padding: 10px 16px;
+#abc-adventure {
+  text-align: center;
+  padding: 30px 15px;
+  margin: 20px 10px;
+  background: #fff0cf;
   border-radius: 20px;
-  cursor: pointer;
+}
+
+.abc-card h3 {
+  font-size: 21px;
+}
+
+.abc-card p {
+  font-size: 14px;
+}
+
+.abc-card button {
+  background: #ff8a45;
 }
 
 .game {
@@ -115,13 +119,9 @@ nav a {
 
 .game button {
   background: white;
-  border: 2px solid #7554d9;
   color: #34345c;
-  border-radius: 12px;
-  padding: 12px 18px;
+  border: 2px solid #7554d9;
   margin: 5px;
-  cursor: pointer;
-  font-size: 16px;
 }
 
 #result {
@@ -134,7 +134,12 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
-  margin-top: 30px;
+}
+
+@media (max-width: 350px) {
+  .cards, #alphabet-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -155,7 +160,7 @@ footer {
 <section class="hero" id="home">
   <h2>Welcome, Little Explorers! 🎉</h2>
   <p>A wonderful place to learn, discover and have fun.</p>
-  <button onclick="document.getElementById('activities').scrollIntoView()">
+  <button onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">
     Start Learning
   </button>
 </section>
@@ -168,32 +173,39 @@ footer {
     <div class="card">
       <div class="emoji">🔤</div>
       <h3>ABC Adventure</h3>
-      <p>Discover letters and words.</p>
-      <button onclick="learn('ABC Adventure')">Explore</button>
+      <p>Discover all 26 letters!</p>
+      <button onclick="openLesson('abc-adventure')">Explore</button>
     </div>
 
     <div class="card">
       <div class="emoji">🔢</div>
       <h3>Number Fun</h3>
       <p>Discover numbers and counting.</p>
-      <button onclick="learn('Number Fun')">Explore</button>
+      <button onclick="comingSoon('Number Fun')">Explore</button>
     </div>
 
     <div class="card">
       <div class="emoji">🦁</div>
       <h3>Animal World</h3>
       <p>Meet wonderful animals.</p>
-      <button onclick="learn('Animal World')">Explore</button>
+      <button onclick="comingSoon('Animal World')">Explore</button>
     </div>
 
     <div class="card">
       <div class="emoji">🎨</div>
       <h3>Colours & Shapes</h3>
       <p>Discover beautiful colours.</p>
-      <button onclick="learn('Colours & Shapes')">Explore</button>
+      <button onclick="comingSoon('Colours & Shapes')">Explore</button>
     </div>
 
   </div>
+</section>
+
+<section id="abc-adventure">
+  <h2>🌈 ABC Adventure</h2>
+  <p>Let's learn the alphabet from A to Z!</p>
+  <p>Tap any letter to hear it spoken.</p>
+  <div id="alphabet-grid"></div>
 </section>
 
 <section class="game" id="game">
@@ -214,15 +226,99 @@ footer {
 
 <script>
 
-function learn(section) {
-  if (section === "ABC Adventure") {
-    document.getElementById("abc-adventure").scrollIntoView({
-      behavior: "smooth"
-    });
-  } else {
-    alert(section + " lessons are coming soon!");
-  }
+function openLesson(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth"
+  });
 }
+
+function comingSoon(name) {
+  alert(name + " lessons are coming soon!");
+}
+
+const alphabet = [
+  ["A", "Apple", "🍎", "A is for Apple. Apples are delicious fruits."],
+  ["B", "Ball", "⚽", "B is for Ball. We can play with a ball."],
+  ["C", "Cat", "🐱", "C is for Cat. A cat says meow."],
+  ["D", "Dog", "🐶", "D is for Dog. A dog can bark."],
+  ["E", "Elephant", "🐘", "E is for Elephant. It has a long trunk."],
+  ["F", "Fish", "🐟", "F is for Fish. Fish live in water."],
+  ["G", "Giraffe", "🦒", "G is for Giraffe. It has a long neck."],
+  ["H", "House", "🏠", "H is for House. We live in houses."],
+  ["I", "Ice cream", "🍦", "I is for Ice cream. It is a cold treat."],
+  ["J", "Juice", "🧃", "J is for Juice. We can drink juice."],
+  ["K", "Kite", "🪁", "K is for Kite. A kite flies in the sky."],
+  ["L", "Lion", "🦁", "L is for Lion. A lion is a wild animal."],
+  ["M", "Monkey", "🐒", "M is for Monkey. Monkeys can climb trees."],
+  ["N", "Nest", "🪺", "N is for Nest. Birds build nests."],
+  ["O", "Orange", "🍊", "O is for Orange. An orange is a fruit."],
+  ["P", "Penguin", "🐧", "P is for Penguin. Penguins are birds."],
+  ["Q", "Queen", "👑", "Q is for Queen. A queen wears a crown."],
+  ["R", "Rabbit", "🐰", "R is for Rabbit. Rabbits have long ears."],
+  ["S", "Sun", "☀️", "S is for Sun. The sun gives us light."],
+  ["T", "Tiger", "🐯", "T is for Tiger. A tiger has stripes."],
+  ["U", "Umbrella", "☂️", "U is for Umbrella. It protects us from rain."],
+  ["V", "Van", "🚐", "V is for Van. A van is a vehicle."],
+  ["W", "Whale", "🐳", "W is for Whale. A whale lives in the sea."],
+  ["X", "Xylophone", "🎵", "X is for Xylophone. It is a musical instrument."],
+  ["Y", "Yoyo", "🪀", "Y is for Yoyo. It is a fun toy."],
+  ["Z", "Zebra", "🦓", "Z is for Zebra. A zebra has black and white stripes."]
+];
+
+const grid = document.getElementById("alphabet-grid");
+
+alphabet.forEach(item => {
+  const card = document.createElement("div");
+  card.className = "abc-card";
+
+  const heading = document.createElement("h3");
+  heading.textContent = item[0] + " is for " + item[1];
+
+  const picture = document.createElement("div");
+  picture.className = "abc-picture";
+  picture.textContent = item[2];
+
+  const description = document.createElement("p");
+  description.textContent = item[3];
+
+  const button = document.createElement("button");
+  button.textContent = "🔊 Listen";
+  button.onclick = () => speakLetter(item[3]);
+
+  card.appendChild(heading);
+  card.appendChild(picture);
+  card.appendChild(description);
+  card.appendChild(button);
+
+  grid.appendChild(card);
+});
+
+function speakLetter(text) {
+  if (!("speechSynthesis" in window)) {
+    alert("Audio is not supported on this browser.");
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  speech.rate = 0.85;
+  speech.pitch = 1.15;
+
+  const voices = window.speechSynthesis.getVoices();
+
+  const femaleVoice = voices.find(voice =>
+    /female|samantha|zira|karen|susan/i.test(voice.name)
+  );
+
+  if (femaleVoice) {
+    speech.voice = femaleVoice;
+  }
+
+  window.speechSynthesis.speak(speech);
+}
+
 function answer(correct) {
   const result = document.getElementById("result");
 
@@ -232,70 +328,8 @@ function answer(correct) {
     result.textContent = "😊 Nice try! Have another go!";
   }
 }
+
 </script>
-<section id="abc-adventure">
-  <h2>🌈 ABC Adventure</h2>
-  <p>Come and learn your ABCs with Wonder Tots Kids!</p>
 
-  <div class="abc-card">
-    <h3> A is for Apple 🍎</h3>
-    <p>A is the first letter of the alphabet.</p>
-    <button onclick="speakLetter('A is for Apple')">
-      🔊 Listen
-    </button>
-  </div>
-
-  <div class="abc-card">
-    <h3>B is for Ball ⚽</h3>
-    <p>B is the second letter of the alphabet.</p>
-    <button onclick="speakLetter('B is for Ball')">
-      🔊 Listen
-    </button>
-  </div>
-</section>
-
-<style>
-#abc-adventure {
-  text-align: center;
-  padding: 30px 15px;
-  background: #fff4d6;
-  border-radius: 20px;
-  margin: 20px;
-}
-
-.abc-card {
-  background: white;
-  padding: 20px;
-  margin: 15px auto;
-  border-radius: 15px;
-  max-width: 350px;
-  box-shadow: 0 3px 10px #ddd;
-}
-
-.abc-card h3 {
-  color: #ff7b54;
-  font-size: 25px;
-}
-
-.abc-card button {
-  background: #6c63ff;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 20px;
-  font-size: 16px;
-}
-</style>
-
-<script>
-function speakLetter(text) {
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.lang = "en-US";
-  speech.rate = 0.85;
-  speech.pitch = 1.2;
-  speechSynthesis.speak(speech);
-}
-</script>
 </body>
 </html>
-
