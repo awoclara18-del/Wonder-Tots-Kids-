@@ -9,136 +9,238 @@
 <style>
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
   background: #fff9ed;
-  color: #34345c;
+  color: #34345a;
 }
 
 header {
-  background: #7554d9;
+  background: linear-gradient(120deg, #713bd1, #a35be8);
   color: white;
   text-align: center;
-  padding: 30px 15px;
+  padding: 25px 15px;
 }
 
 header h1 {
-  font-size: 32px;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
 nav {
-  background: white;
-  padding: 15px;
-  text-align: center;
+  background: #5426a5;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
 }
 
 nav a {
-  color: #7554d9;
+  color: white;
   text-decoration: none;
-  margin: 8px;
   font-weight: bold;
+  padding: 8px;
 }
 
-.hero, .activities {
+.hero {
   text-align: center;
-  padding: 30px 15px;
+  padding: 45px 20px;
+  background: linear-gradient(135deg, #ffe6a7, #ffd1e8);
 }
 
 .hero h2 {
-  color: #f28b35;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
 }
 
 button {
-  cursor: pointer;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 12px 20px;
-  background: #7554d9;
+  background: #713bd1;
   color: white;
-  font-size: 15px;
-}
-
-.hero button {
-  background: #ff9e44;
-}
-
-.cards, #alphabet-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  max-width: 700px;
-  margin: auto;
-}
-
-.card, .abc-card {
-  background: white;
-  padding: 18px 10px;
-  border-radius: 18px;
-  box-shadow: 0 3px 10px #ddd;
-  text-align: center;
-}
-
-.card .emoji, .abc-picture {
-  font-size: 45px;
-}
-
-.card h3, .abc-card h3 {
-  color: #7554d9;
-}
-
-#abc-adventure {
-  text-align: center;
-  padding: 30px 15px;
-  margin: 20px 10px;
-  background: #fff0cf;
-  border-radius: 20px;
-}
-
-.abc-card h3 {
-  font-size: 21px;
-}
-
-.abc-card p {
-  font-size: 14px;
-}
-
-.abc-card button {
-  background: #ff8a45;
-}
-
-.game {
-  background: #e9f7ff;
-  margin: 25px 15px;
-  padding: 25px 15px;
-  border-radius: 18px;
-  text-align: center;
-}
-
-.game button {
-  background: white;
-  color: #34345c;
-  border: 2px solid #7554d9;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
   margin: 5px;
 }
 
-#result {
+button:hover {
+  background: #5426a5;
+}
+
+section {
+  padding: 35px 18px;
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 20px;
+  color: #713bd1;
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.activity {
+  background: white;
+  padding: 22px 12px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px #00000012;
+}
+
+.activity .emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.activity h3 {
+  margin-bottom: 8px;
+}
+
+.lesson-card {
+  background: white;
+  max-width: 550px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 24px;
+  box-shadow: 0 5px 18px #00000015;
+}
+
+.big-letter {
+  font-size: 5rem;
+  color: #713bd1;
   font-weight: bold;
-  margin-top: 15px;
+}
+
+.lesson-picture {
+  font-size: 5rem;
+  margin: 10px;
+}
+
+.lesson-card p {
+  line-height: 1.6;
+  margin: 10px;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #eee;
+  border-radius: 20px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #36c98b;
+  width: 4%;
+  transition: width .3s;
+}
+
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+  gap: 9px;
+  max-width: 650px;
+  margin: 20px auto;
+}
+
+.letter-button {
+  background: white;
+  color: #713bd1;
+  border: 2px solid #e3d5ff;
+  border-radius: 12px;
+  padding: 12px 5px;
+  font-size: 1.2rem;
+}
+
+.letter-button.active {
+  background: #713bd1;
+  color: white;
+}
+
+.quiz-card {
+  background: white;
+  max-width: 550px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px #00000012;
+}
+
+.quiz-card h3 {
+  margin: 15px 0;
+}
+
+.answer-button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  background: #f0e7ff;
+  color: #5426a5;
+}
+
+#feedback {
+  font-weight: bold;
+  margin: 15px;
+  min-height: 24px;
+}
+
+.star-count {
+  color: #e99b00;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.animal-game {
+  background: #e3f8e9;
+  max-width: 500px;
+  padding: 25px;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.animal {
+  font-size: 5rem;
+  cursor: pointer;
+  display: inline-block;
+  margin: 15px;
 }
 
 footer {
-  background: #7554d9;
+  background: #5426a5;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 22px;
+  margin-top: 30px;
 }
 
-@media (max-width: 350px) {
-  .cards, #alphabet-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
   }
 }
 </style>
@@ -148,188 +250,349 @@ footer {
 
 <header>
   <h1>🌈 Wonder Tots Kids</h1>
-  <p>Explore • Learn • Play!</p>
+  <p>Learn, Play and Discover!</p>
 </header>
 
 <nav>
   <a href="#home">Home</a>
-  <a href="#activities">Learning</a>
-  <a href="#game">Games</a>
+  <a href="#activities">Activities</a>
+  <a href="#abc">ABC Adventure</a>
+  <a href="#quiz">Quiz</a>
 </nav>
 
-<section class="hero" id="home">
-  <h2>Welcome, Little Explorers! 🎉</h2>
-  <p>A wonderful place to learn, discover and have fun.</p>
-  <button onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">
+<div class="hero" id="home">
+  <h2>Welcome to Wonder Tots! 🎉</h2>
+  <p>
+    A magical place where little learners explore letters,
+    numbers, animals and exciting adventures.
+  </p>
+  <button onclick="document.getElementById('abc').scrollIntoView({behavior:'smooth'})">
     Start Learning
   </button>
-</section>
+</div>
 
-<section class="activities" id="activities">
-  <h2>What Would You Like to Learn? 📚</h2>
+<section id="activities">
+  <h2>✨ Explore Our Learning World</h2>
 
-  <div class="cards">
-
-    <div class="card">
+  <div class="activities">
+    <div class="activity">
       <div class="emoji">🔤</div>
       <h3>ABC Adventure</h3>
-      <p>Discover all 26 letters!</p>
-      <button onclick="openLesson('abc-adventure')">Explore</button>
+      <p>Discover letters and words.</p>
     </div>
 
-    <div class="card">
+    <div class="activity">
       <div class="emoji">🔢</div>
       <h3>Number Fun</h3>
-      <p>Discover numbers and counting.</p>
-      <button onclick="comingSoon('Number Fun')">Explore</button>
+      <p>Have fun learning numbers.</p>
     </div>
 
-    <div class="card">
+    <div class="activity">
       <div class="emoji">🦁</div>
       <h3>Animal World</h3>
-      <p>Meet wonderful animals.</p>
-      <button onclick="comingSoon('Animal World')">Explore</button>
+      <p>Meet amazing animals.</p>
     </div>
 
-    <div class="card">
+    <div class="activity">
       <div class="emoji">🎨</div>
       <h3>Colours & Shapes</h3>
-      <p>Discover beautiful colours.</p>
-      <button onclick="comingSoon('Colours & Shapes')">Explore</button>
+      <p>Explore colours and shapes.</p>
     </div>
-
   </div>
 </section>
 
-<section id="abc-adventure">
-  <h2>🌈 ABC Adventure</h2>
-  <p>Let's learn the alphabet from A to Z!</p>
-  <p>Tap any letter to hear it spoken.</p>
-  <div id="alphabet-grid"></div>
+<section id="abc">
+  <h2>🔤 ABC Adventure</h2>
+  <p>Let's learn our letters from A to Z!</p>
+
+  <div class="lesson-card">
+    <div class="progress">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="big-letter" id="letter">A a</div>
+    <div class="lesson-picture" id="picture">🍎</div>
+    <h3 id="word">A is for Apple</h3>
+    <p id="description">
+      Apple begins with the letter A. Can you say A?
+    </p>
+
+    <button onclick="speakLesson()">🔊 Listen</button>
+    <br>
+    <button onclick="previousLetter()">⬅ Previous</button>
+    <button onclick="nextLetter()">Next ➡</button>
+  </div>
+
+  <h3 style="margin-top:30px;">Choose a Letter</h3>
+  <div class="letter-grid" id="letterGrid"></div>
 </section>
 
-<section class="game" id="game">
-  <h2>🐮 Let's Play a Little Game!</h2>
-  <p>Which animal says MOO?</p>
+<section id="quiz">
+  <h2>⭐ Little Learners Quiz</h2>
 
-  <button onclick="answer(false)">🐑 Sheep</button>
-  <button onclick="answer(true)">🐄 Cow</button>
-  <button onclick="answer(false)">🐱 Cat</button>
+  <div class="quiz-card">
+    <p class="star-count">⭐ Stars: <span id="stars">0</span></p>
+    <p id="questionNumber">Question 1 of 8</p>
+    <h3 id="question">Which letter begins Apple?</h3>
+    <div id="answers"></div>
+    <p id="feedback"></p>
+    <button onclick="nextQuestion()" id="nextQuestionButton" style="display:none;">
+      Next Question
+    </button>
+    <button onclick="restartQuiz()">Restart Quiz</button>
+  </div>
+</section>
 
-  <p id="result">Choose your answer!</p>
+<section>
+  <h2>🐮 Animal Fun</h2>
+
+  <div class="animal-game">
+    <p>Tap the cow and listen to its sound!</p>
+    <div class="animal" onclick="moo()">🐮</div>
+    <p id="animalMessage">What sound does a cow make?</p>
+    <button onclick="moo()">Hear the Sound</button>
+  </div>
 </section>
 
 <footer>
-  <p>🌟 Wonder Tots Kids</p>
-  <p>Little minds, big discoveries!</p>
+  <p>🌈 Wonder Tots Kids © 2026</p>
+  <p>Little steps, big discoveries!</p>
 </footer>
 
 <script>
+const letters = [
+  ["A","Apple","🍎","Apple begins with A. A is for Apple."],
+  ["B","Ball","⚽","Ball begins with B. B is for Ball."],
+  ["C","Cat","🐱","Cat begins with C. C is for Cat."],
+  ["D","Dog","🐶","Dog begins with D. D is for Dog."],
+  ["E","Elephant","🐘","Elephant begins with E. E is for Elephant."],
+  ["F","Fish","🐟","Fish begins with F. F is for Fish."],
+  ["G","Giraffe","🦒","Giraffe begins with G. G is for Giraffe."],
+  ["H","House","🏠","House begins with H. H is for House."],
+  ["I","Ice cream","🍦","Ice cream begins with I. I is for Ice cream."],
+  ["J","Juice","🧃","Juice begins with J. J is for Juice."],
+  ["K","Kite","🪁","Kite begins with K. K is for Kite."],
+  ["L","Lion","🦁","Lion begins with L. L is for Lion."],
+  ["M","Monkey","🐒","Monkey begins with M. M is for Monkey."],
+  ["N","Nest","🪺","Nest begins with N. N is for Nest."],
+  ["O","Orange","🍊","Orange begins with O. O is for Orange."],
+  ["P","Penguin","🐧","Penguin begins with P. P is for Penguin."],
+  ["Q","Queen","👑","Queen begins with Q. Q is for Queen."],
+  ["R","Rabbit","🐰","Rabbit begins with R. R is for Rabbit."],
+  ["S","Sun","☀️","Sun begins with S. S is for Sun."],
+  ["T","Tiger","🐯","Tiger begins with T. T is for Tiger."],
+  ["U","Umbrella","☂️","Umbrella begins with U. U is for Umbrella."],
+  ["V","Van","🚐","Van begins with V. V is for Van."],
+  ["W","Whale","🐳","Whale begins with W. W is for Whale."],
+  ["X","Xylophone","🎼","Xylophone begins with X. X is for Xylophone."],
+  ["Y","Yo-yo","🪀","Yo-yo begins with Y. Y is for Yo-yo."],
+  ["Z","Zebra","🦓","Zebra begins with Z. Z is for Zebra."]
+];
 
-function openLesson(id) {
-  document.getElementById(id).scrollIntoView({
-    behavior: "smooth"
+let currentLetter = 0;
+let stars = 0;
+
+function displayLetter() {
+  const item = letters[currentLetter];
+
+  document.getElementById("letter").textContent =
+    item[0] + " " + item[0].toLowerCase();
+
+  document.getElementById("picture").textContent = item[2];
+  document.getElementById("word").textContent =
+    item[0] + " is for " + item[1];
+
+  document.getElementById("description").textContent = item[3];
+
+  document.getElementById("progressFill").style.width =
+    ((currentLetter + 1) / letters.length * 100) + "%";
+
+  document.querySelectorAll(".letter-button").forEach((button, index) => {
+    button.classList.toggle("active", index === currentLetter);
   });
 }
 
-function comingSoon(name) {
-  alert(name + " lessons are coming soon!");
+function createLetterGrid() {
+  const grid = document.getElementById("letterGrid");
+
+  letters.forEach((item, index) => {
+    const button = document.createElement("button");
+    button.className = "letter-button";
+    button.textContent = item[0];
+
+    button.onclick = () => {
+      currentLetter = index;
+      displayLetter();
+    };
+
+    grid.appendChild(button);
+  });
 }
 
-const alphabet = [
-  ["A", "Apple", "🍎", "A is for Apple. Apples are delicious fruits."],
-  ["B", "Ball", "⚽", "B is for Ball. We can play with a ball."],
-  ["C", "Cat", "🐱", "C is for Cat. A cat says meow."],
-  ["D", "Dog", "🐶", "D is for Dog. A dog can bark."],
-  ["E", "Elephant", "🐘", "E is for Elephant. It has a long trunk."],
-  ["F", "Fish", "🐟", "F is for Fish. Fish live in water."],
-  ["G", "Giraffe", "🦒", "G is for Giraffe. It has a long neck."],
-  ["H", "House", "🏠", "H is for House. We live in houses."],
-  ["I", "Ice cream", "🍦", "I is for Ice cream. It is a cold treat."],
-  ["J", "Juice", "🧃", "J is for Juice. We can drink juice."],
-  ["K", "Kite", "🪁", "K is for Kite. A kite flies in the sky."],
-  ["L", "Lion", "🦁", "L is for Lion. A lion is a wild animal."],
-  ["M", "Monkey", "🐒", "M is for Monkey. Monkeys can climb trees."],
-  ["N", "Nest", "🪺", "N is for Nest. Birds build nests."],
-  ["O", "Orange", "🍊", "O is for Orange. An orange is a fruit."],
-  ["P", "Penguin", "🐧", "P is for Penguin. Penguins are birds."],
-  ["Q", "Queen", "👑", "Q is for Queen. A queen wears a crown."],
-  ["R", "Rabbit", "🐰", "R is for Rabbit. Rabbits have long ears."],
-  ["S", "Sun", "☀️", "S is for Sun. The sun gives us light."],
-  ["T", "Tiger", "🐯", "T is for Tiger. A tiger has stripes."],
-  ["U", "Umbrella", "☂️", "U is for Umbrella. It protects us from rain."],
-  ["V", "Van", "🚐", "V is for Van. A van is a vehicle."],
-  ["W", "Whale", "🐳", "W is for Whale. A whale lives in the sea."],
-  ["X", "Xylophone", "🎵", "X is for Xylophone. It is a musical instrument."],
-  ["Y", "Yoyo", "🪀", "Y is for Yoyo. It is a fun toy."],
-  ["Z", "Zebra", "🦓", "Z is for Zebra. A zebra has black and white stripes."]
-];
+function nextLetter() {
+  currentLetter = (currentLetter + 1) % letters.length;
+  displayLetter();
+}
 
-const grid = document.getElementById("alphabet-grid");
+function previousLetter() {
+  currentLetter = (currentLetter - 1 + letters.length) % letters.length;
+  displayLetter();
+}
 
-alphabet.forEach(item => {
-  const card = document.createElement("div");
-  card.className = "abc-card";
-
-  const heading = document.createElement("h3");
-  heading.textContent = item[0] + " is for " + item[1];
-
-  const picture = document.createElement("div");
-  picture.className = "abc-picture";
-  picture.textContent = item[2];
-
-  const description = document.createElement("p");
-  description.textContent = item[3];
-
-  const button = document.createElement("button");
-  button.textContent = "🔊 Listen";
-  button.onclick = () => speakLetter(item[3]);
-
-  card.appendChild(heading);
-  card.appendChild(picture);
-  card.appendChild(description);
-  card.appendChild(button);
-
-  grid.appendChild(card);
-});
-
-function speakLetter(text) {
+function speak(text) {
   if (!("speechSynthesis" in window)) {
-    alert("Audio is not supported on this browser.");
+    alert("Sorry, audio is not supported by this browser.");
     return;
   }
 
   window.speechSynthesis.cancel();
 
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.lang = "en-US";
-  speech.rate = 0.85;
-  speech.pitch = 1.15;
+  const message = new SpeechSynthesisUtterance(text);
+  message.rate = 0.85;
+  message.pitch = 1.15;
 
   const voices = window.speechSynthesis.getVoices();
-
-  const femaleVoice = voices.find(voice =>
-    /female|samantha|zira|karen|susan/i.test(voice.name)
+  const preferredVoice = voices.find(voice =>
+    /female|samantha|zira|karen|susan|aria|jenny/i.test(voice.name)
   );
 
-  if (femaleVoice) {
-    speech.voice = femaleVoice;
+  if (preferredVoice) {
+    message.voice = preferredVoice;
   }
 
-  window.speechSynthesis.speak(speech);
+  window.speechSynthesis.speak(message);
 }
 
-function answer(correct) {
-  const result = document.getElementById("result");
+function speakLesson() {
+  const item = letters[currentLetter];
+  speak(item[3]);
+}
 
-  if (correct) {
-    result.textContent = "🎉 Wonderful! The cow says MOO!";
+const questions = [
+  {
+    question: "Which letter begins Apple?",
+    answers: ["A", "B", "C"],
+    correct: "A"
+  },
+  {
+    question: "Which letter begins Ball?",
+    answers: ["D", "B", "F"],
+    correct: "B"
+  },
+  {
+    question: "Which animal begins with C?",
+    answers: ["Dog", "Lion", "Cat"],
+    correct: "Cat"
+  },
+  {
+    question: "Which letter begins Elephant?",
+    answers: ["E", "F", "G"],
+    correct: "E"
+  },
+  {
+    question: "Which animal begins with L?",
+    answers: ["Rabbit", "Lion", "Fish"],
+    correct: "Lion"
+  },
+  {
+    question: "Which letter begins Zebra?",
+    answers: ["X", "Y", "Z"],
+    correct: "Z"
+  },
+  {
+    question: "Which letter begins Orange?",
+    answers: ["O", "P", "Q"],
+    correct: "O"
+  },
+  {
+    question: "Which animal begins with T?",
+    answers: ["Tiger", "Monkey", "Rabbit"],
+    correct: "Tiger"
+  }
+];
+
+let questionIndex = 0;
+let answered = false;
+
+function showQuestion() {
+  answered = false;
+
+  const item = questions[questionIndex];
+
+  document.getElementById("questionNumber").textContent =
+    "Question " + (questionIndex + 1) + " of " + questions.length;
+
+  document.getElementById("question").textContent = item.question;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextQuestionButton").style.display = "none";
+
+  const answerArea = document.getElementById("answers");
+  answerArea.innerHTML = "";
+
+  item.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.className = "answer-button";
+    button.textContent = answer;
+    button.onclick = () => checkAnswer(answer);
+    answerArea.appendChild(button);
+  });
+}
+
+function checkAnswer(answer) {
+  if (answered) return;
+
+  answered = true;
+
+  const correct = questions[questionIndex].correct;
+  const feedback = document.getElementById("feedback");
+
+  if (answer === correct) {
+    feedback.textContent = "🎉 Correct! Well done!";
+    awardStar();
   } else {
-    result.textContent = "😊 Nice try! Have another go!";
+    feedback.textContent = "Good try! The correct answer is " + correct + ".";
+  }
+
+  document.getElementById("nextQuestionButton").style.display = "inline-block";
+}
+
+function nextQuestion() {
+  if (questionIndex < questions.length - 1) {
+    questionIndex++;
+    showQuestion();
+  } else {
+    document.getElementById("question").textContent =
+      "🎉 You have completed the quiz!";
+    document.getElementById("answers").innerHTML =
+      "<p>Great learning! Come back and play again.</p>";
+    document.getElementById("feedback").textContent =
+      "Your stars: " + stars;
+    document.getElementById("nextQuestionButton").style.display = "none";
   }
 }
 
+function restartQuiz() {
+  questionIndex = 0;
+  showQuestion();
+}
+
+function awardStar() {
+  stars++;
+  document.getElementById("stars").textContent = stars;
+}
+
+function moo() {
+  document.getElementById("animalMessage").textContent =
+    "Moooo! 🐮 A cow says moo!";
+
+  speak("Moooo! A cow says moo!");
+}
+
+createLetterGrid();
+displayLetter();
+showQuestion();
 </script>
 
 </body>
-</html>
+        </html>
+  
