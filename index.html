@@ -1444,6 +1444,539 @@ createShapeGrid();
 displayColourShape();
 
 showColourQuestion();
+  
+// ===================================
+// NUMBER CHALLENGE
+// ===================================
+
+const numberQuestions = [
+  {q:"What number comes after 4?",a:["3","5","6"],c:"5"},
+  {q:"What number comes before 8?",a:["7","9","6"],c:"7"},
+  {q:"How many sides does a triangle have?",a:["2","3","4"],c:"3"},
+  {q:"Which number is bigger?",a:["12","8","5"],c:"12"},
+  {q:"What is 2 + 3?",a:["4","5","6"],c:"5"},
+  {q:"Which number comes after 19?",a:["18","20","21"],c:"20"}
+];
+
+let numberQuestionIndex = 0;
+let numberStarCount = 0;
+let numberAnswered = false;
+
+function displayNumberQuestion() {
+  const item = numberQuestions[numberQuestionIndex];
+
+  document.getElementById("numberQuestionCount").textContent =
+    "Question " + (numberQuestionIndex + 1) + " of " +
+    numberQuestions.length;
+
+  document.getElementById("numberQuestion").textContent = item.q;
+  document.getElementById("numberStars").textContent = numberStarCount;
+  document.getElementById("numberFeedback").textContent = "";
+  document.getElementById("nextNumberQuestion").style.display = "none";
+
+  const answers = document.getElementById("numberAnswers");
+  answers.innerHTML = "";
+  numberAnswered = false;
+
+  item.a.forEach(answer => {
+    const button = document.createElement("button");
+    button.className = "number-answer";
+    button.textContent = answer;
+    button.onclick = () => checkNumberAnswer(answer);
+    answers.appendChild(button);
+  });
+}
+
+function checkNumberAnswer(answer) {
+  if (numberAnswered) return;
+  numberAnswered = true;
+
+  const correct = numberQuestions[numberQuestionIndex].c;
+  const feedback = document.getElementById("numberFeedback");
+
+  if (answer === correct) {
+    numberStarCount++;
+    feedback.textContent = "🎉 Correct! You earned a star!";
+  } else {
+    feedback.textContent = "Good try! The correct answer is " + correct + ".";
+  }
+
+  document.getElementById("numberStars").textContent = numberStarCount;
+  document.getElementById("nextNumberQuestion").style.display = "inline-block";
+
+  if (numberQuestionIndex === numberQuestions.length - 1) {
+    document.getElementById("nextNumberQuestion").textContent = "See Results";
+  } else {
+    document.getElementById("nextNumberQuestion").textContent = "Next Question";
+  }
+}
+
+function nextNumberQuestion() {
+  if (!numberAnswered) return;
+
+  if (numberQuestionIndex < numberQuestions.length - 1) {
+    numberQuestionIndex++;
+    displayNumberQuestion();
+  } else {
+    document.getElementById("numberQuestion").textContent =
+      "Challenge completed! 🎊";
+
+    document.getElementById("numberQuestionCount").textContent =
+      "You finished all 6 questions!";
+
+    document.getElementById("numberAnswers").innerHTML = "";
+    document.getElementById("numberFeedback").textContent =
+      "You earned " + numberStarCount + " stars! ⭐";
+
+    document.getElementById("nextNumberQuestion").style.display = "none";
+  }
+}
+
+function restartNumberQuiz() {
+  numberQuestionIndex = 0;
+  numberStarCount = 0;
+  displayNumberQuestion();
+}
+
+// ===================================
+// COLOUR AND SHAPE CHALLENGE
+// ===================================
+
+const colourQuestions = [
+  {q:"Which colour is the colour of grass?",a:["Green","Blue","Pink"],c:"Green"},
+  {q:"Which shape is round?",a:["Triangle","Circle","Square"],c:"Circle"},
+  {q:"Which colour is the colour of the sun?",a:["Black","Yellow","Purple"],c:"Yellow"},
+  {q:"How many sides does a square have?",a:["Three","Four","Five"],c:"Four"},
+  {q:"Which colour is an orange fruit?",a:["Orange","Blue","White"],c:"Orange"},
+  {q:"Which shape has three sides?",a:["Circle","Rectangle","Triangle"],c:"Triangle"},
+  {q:"Which colour is the colour of milk?",a:["White","Green","Red"],c:"White"},
+  {q:"Which shape looks like a star in the sky?",a:["Heart","Star","Square"],c:"Star"}
+];
+
+let colourQuestionIndex = 0;
+let colourStarCount = 0;
+let colourAnswered = false;
+
+function displayColourQuestion() {
+  const item = colourQuestions[colourQuestionIndex];
+
+  document.getElementById("colourQuestionCount").textContent =
+    "Question " + (colourQuestionIndex + 1) + " of " +
+    colourQuestions.length;
+
+  document.getElementById("colourQuestion").textContent = item.q;
+  document.getElementById("colourStars").textContent = colourStarCount;
+  document.getElementById("colourFeedback").textContent = "";
+  document.getElementById("nextColourQuestion").style.display = "none";
+
+  const answers = document.getElementById("colourAnswers");
+  answers.innerHTML = "";
+  colourAnswered = false;
+
+  item.a.forEach(answer => {
+    const button = document.createElement("button");
+    button.className = "colour-answer";
+    button.textContent = answer;
+    button.onclick = () => checkColourAnswer(answer);
+    answers.appendChild(button);
+  });
+}
+
+function checkColourAnswer(answer) {
+  if (colourAnswered) return;
+  colourAnswered = true;
+
+  const correct = colourQuestions[colourQuestionIndex].c;
+  const feedback = document.getElementById("colourFeedback");
+
+  if (answer === correct) {
+    colourStarCount++;
+    feedback.textContent = "🌟 Excellent! You earned a star!";
+  } else {
+    feedback.textContent = "Good try! The correct answer is " + correct + ".";
+  }
+
+  document.getElementById("colourStars").textContent = colourStarCount;
+  document.getElementById("nextColourQuestion").style.display = "inline-block";
+
+  document.getElementById("nextColourQuestion").textContent =
+    colourQuestionIndex === colourQuestions.length - 1
+      ? "See Results"
+      : "Next Question";
+}
+
+function nextColourQuestion() {
+  if (!colourAnswered) return;
+
+  if (colourQuestionIndex < colourQuestions.length - 1) {
+    colourQuestionIndex++;
+    displayColourQuestion();
+  } else {
+    document.getElementById("colourQuestion").textContent =
+      "You completed the challenge! 🎉";
+
+    document.getElementById("colourQuestionCount").textContent =
+      "All 8 questions completed!";
+
+    document.getElementById("colourAnswers").innerHTML = "";
+    document.getElementById("colourFeedback").textContent =
+      "You earned " + colourStarCount + " stars! ⭐";
+
+    document.getElementById("nextColourQuestion").style.display = "none";
+  }
+}
+
+function restartColourQuiz() {
+  colourQuestionIndex = 0;
+  colourStarCount = 0;
+  displayColourQuestion();
+}
+
+// ===================================
+// DOMESTIC AND WILD ANIMAL QUIZZES
+// ===================================
+
+const domesticQuestions = [
+  {q:"Which animal gives us milk?",a:["Cow","Lion","Fox"],c:"Cow"},
+  {q:"Which animal says woof woof?",a:["Duck","Dog","Sheep"],c:"Dog"},
+  {q:"Which animal lays eggs?",a:["Horse","Cat","Chicken"],c:"Chicken"},
+  {q:"Which animal says meow?",a:["Cat","Goat","Pig"],c:"Cat"},
+  {q:"Which animal can swim and says quack?",a:["Cow","Duck","Donkey"],c:"Duck"}
+];
+
+const wildQuestions = [
+  {q:"Which animal has a long trunk?",a:["Elephant","Fox","Tiger"],c:"Elephant"},
+  {q:"Which animal has black and white stripes?",a:["Bear","Zebra","Lion"],c:"Zebra"},
+  {q:"Which animal has a very long neck?",a:["Monkey","Wolf","Giraffe"],c:"Giraffe"},
+  {q:"Which animal is known for its roar?",a:["Lion","Rabbit","Sheep"],c:"Lion"},
+  {q:"Which animal has a bushy tail and is often called clever?",a:["Cow","Fox","Duck"],c:"Fox"}
+];
+
+const animalQuizState = {
+  domestic:{index:0,stars:0,answered:false},
+  wild:{index:0,stars:0,answered:false}
+};
+
+function animalQuestions(type) {
+  return type === "domestic" ? domesticQuestions : wildQuestions;
+}
+
+function displayAnimalQuiz(type) {
+  const state = animalQuizState[type];
+  const questions = animalQuestions(type);
+  const item = questions[state.index];
+
+  document.getElementById(type + "Stars").textContent = state.stars;
+
+  document.getElementById(type + "QuizCount").textContent =
+    "Question " + (state.index + 1) + " of " + questions.length;
+
+  document.getElementById(type + "Question").textContent = item.q;
+  document.getElementById(type + "Feedback").textContent = "";
+  document.getElementById(type + "Next").style.display = "none";
+
+  const answers = document.getElementById(type + "Answers");
+  answers.innerHTML = "";
+  state.answered = false;
+
+  item.a.forEach(answer => {
+    const button = document.createElement("button");
+    button.className = "animal-answer";
+    button.textContent = answer;
+
+    button.onclick = () => checkAnimalQuiz(type, answer);
+
+    answers.appendChild(button);
+  });
+}
+
+function checkAnimalQuiz(type, answer) {
+  const state = animalQuizState[type];
+  const questions = animalQuestions(type);
+
+  if (state.answered) return;
+  state.answered = true;
+
+  const correct = questions[state.index].c;
+  const feedback = document.getElementById(type + "Feedback");
+
+  if (answer === correct) {
+    state.stars++;
+    feedback.textContent = "🎉 Correct! You earned a star!";
+  } else {
+    feedback.textContent = "Good try! The answer is " + correct + ".";
+  }
+
+  document.getElementById(type + "Stars").textContent = state.stars;
+  document.getElementById(type + "Next").style.display = "inline-block";
+
+  document.getElementById(type + "Next").textContent =
+    state.index === questions.length - 1 ? "See Results" : "Next Question";
+}
+
+function nextAnimalQuiz(type) {
+  const state = animalQuizState[type];
+  const questions = animalQuestions(type);
+
+  if (!state.answered) return;
+
+  if (state.index < questions.length - 1) {
+    state.index++;
+    displayAnimalQuiz(type);
+  } else {
+    document.getElementById(type + "Question").textContent =
+      "Quiz completed! 🎊";
+
+    document.getElementById(type + "QuizCount").textContent =
+      "You finished all the questions!";
+
+    document.getElementById(type + "Answers").innerHTML = "";
+
+    document.getElementById(type + "Feedback").textContent =
+      "You earned " + state.stars + " stars! ⭐";
+
+    document.getElementById(type + "Next").style.display = "none";
+  }
+}
+
+function restartAnimalQuiz(type) {
+  animalQuizState[type] = {
+    index:0,
+    stars:0,
+    answered:false
+  };
+
+  displayAnimalQuiz(type);
+}
+
+// ===================================
+// DOMESTIC OR WILD CHALLENGE
+// ===================================
+
+const classificationQuestions = [
+  {name:"Cow",emoji:"🐮",type:"Domestic"},
+  {name:"Lion",emoji:"🦁",type:"Wild"},
+  {name:"Dog",emoji:"🐶",type:"Domestic"},
+  {name:"Elephant",emoji:"🐘",type:"Wild"},
+  {name:"Chicken",emoji:"🐔",type:"Domestic"},
+  {name:"Tiger",emoji:"🐯",type:"Wild"},
+  {name:"Goat",emoji:"🐐",type:"Domestic"},
+  {name:"Giraffe",emoji:"🦒",type:"Wild"},
+  {name:"Duck",emoji:"🦆",type:"Domestic"},
+  {name:"Zebra",emoji:"🦓",type:"Wild"}
+];
+
+let challengeIndex = 0;
+let challengeStarCount = 0;
+let challengeAnswered = false;
+
+function displayAnimalChallenge() {
+  const item = classificationQuestions[challengeIndex];
+
+  document.getElementById("challengeStars").textContent =
+    challengeStarCount;
+
+  document.getElementById("challengeCount").textContent =
+    "Animal " + (challengeIndex + 1) + " of " +
+    classificationQuestions.length;
+
+  document.getElementById("challengePicture").textContent = item.emoji;
+
+  document.getElementById("challengeQuestion").textContent =
+    "Is the " + item.name + " domestic or wild?";
+
+  document.getElementById("challengeFeedback").textContent = "";
+
+  document.getElementById("challengeNext").style.display = "none";
+  document.getElementById("challengeAnswers").style.display = "block";
+
+  challengeAnswered = false;
+}
+
+function checkAnimalChallenge(answer) {
+  if (challengeAnswered) return;
+  challengeAnswered = true;
+
+  const item = classificationQuestions[challengeIndex];
+  const feedback = document.getElementById("challengeFeedback");
+
+  if (answer === item.type) {
+    challengeStarCount++;
+    feedback.textContent = "🌟 Correct! " + item.name +
+      " is a " + item.type.toLowerCase() + " animal!";
+  } else {
+    feedback.textContent = "Good try! The " + item.name +
+      " is a " + item.type.toLowerCase() + " animal.";
+  }
+
+  document.getElementById("challengeStars").textContent =
+    challengeStarCount;
+
+  document.getElementById("challengeAnswers").style.display = "none";
+  document.getElementById("challengeNext").style.display = "inline-block";
+
+  document.getElementById("challengeNext").textContent =
+    challengeIndex === classificationQuestions.length - 1
+      ? "See Results"
+      : "Next Animal";
+}
+
+function nextAnimalChallenge() {
+  if (!challengeAnswered) return;
+
+  if (challengeIndex < classificationQuestions.length - 1) {
+    challengeIndex++;
+    displayAnimalChallenge();
+  } else {
+    document.getElementById("challengePicture").textContent = "🏆";
+    document.getElementById("challengeQuestion").textContent =
+      "You are an Animal Expert!";
+
+    document.getElementById("challengeCount").textContent =
+      "You completed all 10 animals!";
+
+    document.getElementById("challengeFeedback").textContent =
+      "You earned " + challengeStarCount + " stars! ⭐";
+
+    document.getElementById("challengeAnswers").style.display = "none";
+    document.getElementById("challengeNext").style.display = "none";
+  }
+}
+
+function restartAnimalChallenge() {
+  challengeIndex = 0;
+  challengeStarCount = 0;
+  challengeAnswered = false;
+  displayAnimalChallenge();
+}
+
+// ===================================
+// LITTLE LEARNERS ABC QUIZ
+// ===================================
+
+const generalQuestions = [
+  {q:"Which letter does Apple begin with?",a:["A","B","C"],c:"A"},
+  {q:"Which animal says moo?",a:["Cow","Dog","Cat"],c:"Cow"},
+  {q:"What is 2 + 2?",a:["3","4","5"],c:"4"},
+  {q:"Which colour is the sky on a clear day?",a:["Blue","Green","Red"],c:"Blue"},
+  {q:"Which animal has a long trunk?",a:["Lion","Elephant","Goat"],c:"Elephant"},
+  {q:"Which shape has three sides?",a:["Square","Circle","Triangle"],c:"Triangle"},
+  {q:"Which letter comes after B?",a:["A","C","D"],c:"C"},
+  {q:"Which animal lays eggs?",a:["Chicken","Cat","Dog"],c:"Chicken"}
+];
+
+let generalQuestionIndex = 0;
+let generalStarCount = 0;
+let generalAnswered = false;
+
+function displayGeneralQuestion() {
+  const item = generalQuestions[generalQuestionIndex];
+
+  document.getElementById("questionNumber").textContent =
+    "Question " + (generalQuestionIndex + 1) + " of " +
+    generalQuestions.length;
+
+  document.getElementById("question").textContent = item.q;
+  document.getElementById("stars").textContent = generalStarCount;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextQuestionButton").style.display = "none";
+
+  const answers = document.getElementById("answers");
+  answers.innerHTML = "";
+  generalAnswered = false;
+
+  item.a.forEach(answer => {
+    const button = document.createElement("button");
+    button.className = "answer-button";
+    button.textContent = answer;
+    button.onclick = () => checkGeneralAnswer(answer);
+    answers.appendChild(button);
+  });
+}
+
+function checkGeneralAnswer(answer) {
+  if (generalAnswered) return;
+  generalAnswered = true;
+
+  const correct = generalQuestions[generalQuestionIndex].c;
+  const feedback = document.getElementById("feedback");
+
+  if (answer === correct) {
+    generalStarCount++;
+    feedback.textContent = "🎉 Wonderful! You earned a star!";
+  } else {
+    feedback.textContent = "Good try! The correct answer is " + correct + ".";
+  }
+
+  document.getElementById("stars").textContent = generalStarCount;
+  document.getElementById("nextQuestionButton").style.display = "inline-block";
+
+  document.getElementById("nextQuestionButton").textContent =
+    generalQuestionIndex === generalQuestions.length - 1
+      ? "See Results"
+      : "Next Question";
+}
+
+function nextQuestion() {
+  if (!generalAnswered) return;
+
+  if (generalQuestionIndex < generalQuestions.length - 1) {
+    generalQuestionIndex++;
+    displayGeneralQuestion();
+  } else {
+    document.getElementById("question").textContent =
+      "You completed the quiz! 🏆";
+
+    document.getElementById("questionNumber").textContent =
+      "All 8 questions completed!";
+
+    document.getElementById("answers").innerHTML = "";
+    document.getElementById("feedback").textContent =
+      "You earned " + generalStarCount + " stars! ⭐";
+
+    document.getElementById("nextQuestionButton").style.display = "none";
+  }
+}
+
+function restartQuiz() {
+  generalQuestionIndex = 0;
+  generalStarCount = 0;
+  displayGeneralQuestion();
+}
+
+// ===================================
+// START ALL WEBSITE ACTIVITIES
+// ===================================
+
+createLetterGrid();
+displayLetter();
+
+createNumberGrid();
+displayNumber();
+
+createColourGrid();
+createShapeGrid();
+displayColourShape();
+
+createAnimalGrid("domestic");
+createAnimalGrid("wild");
+
+displayAnimal("domestic");
+displayAnimal("wild");
+
+displayNumberQuestion();
+displayColourQuestion();
+
+displayAnimalQuiz("domestic");
+displayAnimalQuiz("wild");
+
+displayAnimalChallenge();
+displayGeneralQuestion();
+
+</script>
+</body>
+</html>
+
 
 </script>
 
