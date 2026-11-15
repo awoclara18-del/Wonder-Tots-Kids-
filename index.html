@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,357 +7,436 @@
 <title>Wonder Tots Kids</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing:border-box; margin:0; padding:0; }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #fff9ed;
-  color: #34345a;
+  font-family:Arial,sans-serif;
+  background:#fff9ed;
+  color:#34345a;
 }
 
 header {
-  background: linear-gradient(120deg, #713bd1, #a35be8);
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
+  background:linear-gradient(120deg,#713bd1,#a35be8);
+  color:white;
+  text-align:center;
+  padding:25px 15px;
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 8px;
-}
+header h1 { font-size:2rem; margin-bottom:8px; }
 
 nav {
-  background: #5426a5;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 12px;
+  background:#5426a5;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:12px;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  padding:8px;
 }
 
 .hero {
-  text-align: center;
-  padding: 45px 20px;
-  background: linear-gradient(135deg, #ffe6a7, #ffd1e8);
+  text-align:center;
+  padding:45px 20px;
+  background:linear-gradient(135deg,#ffe6a7,#ffd1e8);
 }
 
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
+.hero h2 { font-size:2rem; margin-bottom:12px; }
 
 .hero p {
-  max-width: 600px;
-  margin: 0 auto 20px;
-  line-height: 1.6;
+  max-width:600px;
+  margin:0 auto 20px;
+  line-height:1.6;
 }
 
 button {
-  border: none;
-  border-radius: 25px;
-  padding: 12px 20px;
-  background: #713bd1;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 5px;
+  border:none;
+  border-radius:25px;
+  padding:12px 20px;
+  background:#713bd1;
+  color:white;
+  font-size:1rem;
+  font-weight:bold;
+  cursor:pointer;
+  margin:5px;
 }
 
-button:hover {
-  background: #5426a5;
-}
+button:hover { background:#5426a5; }
 
-section {
-  padding: 35px 18px;
-  text-align: center;
-}
-
-section h2 {
-  margin-bottom: 20px;
-  color: #713bd1;
-}
+section { padding:35px 18px; text-align:center; }
+section h2 { margin-bottom:20px; color:#713bd1; }
 
 .activities {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  max-width: 850px;
-  margin: auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+  max-width:850px;
+  margin:auto;
 }
 
 .activity {
-  background: white;
-  padding: 22px 12px;
-  border-radius: 18px;
-  box-shadow: 0 4px 12px #00000012;
+  background:white;
+  padding:22px 12px;
+  border-radius:18px;
+  box-shadow:0 4px 12px #00000012;
 }
 
-.activity .emoji {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.activity h3 {
-  margin-bottom: 8px;
-}
-
-.activity-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
+.activity .emoji { font-size:3rem; margin-bottom:10px; }
+.activity h3 { margin-bottom:8px; }
+.activity-link { text-decoration:none; color:inherit; display:block; }
 
 .lesson-card {
-  background: white;
-  max-width: 550px;
-  margin: auto;
-  padding: 25px;
-  border-radius: 24px;
-  box-shadow: 0 5px 18px #00000015;
+  background:white;
+  max-width:550px;
+  margin:auto;
+  padding:25px;
+  border-radius:24px;
+  box-shadow:0 5px 18px #00000015;
 }
 
 .big-letter {
-  font-size: 5rem;
-  color: #713bd1;
-  font-weight: bold;
+  font-size:5rem;
+  color:#713bd1;
+  font-weight:bold;
 }
 
-.lesson-picture {
-  font-size: 5rem;
-  margin: 10px;
-}
-
-.lesson-card p {
-  line-height: 1.6;
-  margin: 10px;
-}
+.lesson-picture { font-size:5rem; margin:10px; }
+.lesson-card p { line-height:1.6; margin:10px; }
 
 .progress {
-  width: 100%;
-  height: 10px;
-  background: #eee;
-  border-radius: 20px;
-  margin: 15px 0;
-  overflow: hidden;
+  width:100%;
+  height:10px;
+  background:#eee;
+  border-radius:20px;
+  margin:15px 0;
+  overflow:hidden;
 }
 
 .progress-fill {
-  height: 100%;
-  background: #36c98b;
-  width: 4%;
-  transition: width .3s;
+  height:100%;
+  background:#36c98b;
+  width:4%;
+  transition:width .3s;
 }
 
 .letter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
-  gap: 9px;
-  max-width: 650px;
-  margin: 20px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(48px,1fr));
+  gap:9px;
+  max-width:650px;
+  margin:20px auto;
 }
 
 .letter-button {
-  background: white;
-  color: #713bd1;
-  border: 2px solid #e3d5ff;
-  border-radius: 12px;
-  padding: 12px 5px;
-  font-size: 1.2rem;
+  background:white;
+  color:#713bd1;
+  border:2px solid #e3d5ff;
+  border-radius:12px;
+  padding:12px 5px;
+  font-size:1.2rem;
 }
 
-.letter-button.active {
-  background: #713bd1;
-  color: white;
-}
+.letter-button.active { background:#713bd1; color:white; }
 
 /* 123 ADVENTURE */
 
-.number-section {
-  background: linear-gradient(135deg, #e6f5ff, #fff0f8);
-}
+.number-section { background:linear-gradient(135deg,#e6f5ff,#fff0f8); }
 
 .number-card {
-  background: white;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 25px 15px;
-  border-radius: 24px;
-  box-shadow: 0 5px 18px #00000015;
+  background:white;
+  max-width:600px;
+  margin:20px auto;
+  padding:25px 15px;
+  border-radius:24px;
+  box-shadow:0 5px 18px #00000015;
 }
 
 .number-display {
-  font-size: 5rem;
-  font-weight: bold;
-  color: #ed8b25;
-  margin: 10px;
+  font-size:5rem;
+  font-weight:bold;
+  color:#ed8b25;
+  margin:10px;
 }
 
 .number-name {
-  font-size: 1.7rem;
-  color: #713bd1;
-  margin: 10px;
-  font-weight: bold;
+  font-size:1.7rem;
+  color:#713bd1;
+  margin:10px;
+  font-weight:bold;
 }
 
 .number-picture {
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  gap: 5px;
-  max-width: 420px;
-  margin: 20px auto;
-  padding: 12px;
-  background: #fff9ed;
-  border-radius: 15px;
+  display:grid;
+  grid-template-columns:repeat(10,minmax(0,1fr));
+  gap:5px;
+  max-width:420px;
+  margin:20px auto;
+  padding:12px;
+  background:#fff9ed;
+  border-radius:15px;
 }
 
-.count-item {
-  font-size: clamp(16px, 4vw, 27px);
-  line-height: 1.3;
-}
-
-.number-description {
-  line-height: 1.7;
-  margin: 15px auto;
-}
+.count-item { font-size:clamp(16px,4vw,27px); line-height:1.3; }
+.number-description { line-height:1.7; margin:15px auto; }
 
 .number-grid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 7px;
-  max-width: 650px;
-  margin: 20px auto;
+  display:grid;
+  grid-template-columns:repeat(10,1fr);
+  gap:7px;
+  max-width:650px;
+  margin:20px auto;
 }
 
 .number-button {
-  background: white;
-  color: #713bd1;
-  border: 2px solid #e3d5ff;
-  border-radius: 10px;
-  padding: 10px 2px;
-  font-size: .95rem;
-  margin: 0;
+  background:white;
+  color:#713bd1;
+  border:2px solid #e3d5ff;
+  border-radius:10px;
+  padding:10px 2px;
+  font-size:.95rem;
+  margin:0;
 }
 
-.number-button.active {
-  background: #713bd1;
-  color: white;
+.number-button.active { background:#713bd1; color:white; }
+
+.number-quiz,.quiz-card {
+  background:white;
+  max-width:550px;
+  padding:25px;
+  border-radius:20px;
+  margin:20px auto;
+  box-shadow:0 4px 15px #00000012;
 }
 
-.number-quiz {
-  background: white;
-  max-width: 550px;
-  padding: 25px;
-  border-radius: 20px;
-  margin: 20px auto;
-  box-shadow: 0 4px 15px #00000012;
+.number-quiz h3,.quiz-card h3 { margin:15px 0; }
+
+.number-answer,.answer-button {
+  display:block;
+  width:100%;
+  max-width:300px;
+  margin:10px auto;
+  background:#f0e7ff;
+  color:#5426a5;
 }
 
-.number-quiz h3 {
-  margin: 18px 0;
+.number-answer { background:#e9f4ff; }
+
+.number-answer:disabled,.answer-button:disabled {
+  opacity:.7;
+  cursor:default;
 }
 
-.number-answer {
-  display: block;
-  width: 100%;
-  max-width: 280px;
-  margin: 10px auto;
-  background: #e9f4ff;
-  color: #5426a5;
-}
-
-.number-answer:disabled {
-  opacity: .7;
-  cursor: default;
-}
-
-.quiz-card {
-  background: white;
-  max-width: 550px;
-  margin: auto;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px #00000012;
-}
-
-.quiz-card h3 {
-  margin: 15px 0;
-}
-
-.answer-button {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  margin: 10px auto;
-  background: #f0e7ff;
-  color: #5426a5;
-}
-
-#feedback,
-#numberFeedback {
-  font-weight: bold;
-  margin: 15px;
-  min-height: 24px;
+#feedback,#numberFeedback,#colourFeedback {
+  font-weight:bold;
+  margin:15px;
+  min-height:24px;
 }
 
 .star-count {
-  color: #e99b00;
-  font-weight: bold;
-  font-size: 1.2rem;
+  color:#e99b00;
+  font-weight:bold;
+  font-size:1.2rem;
 }
 
 .animal-game {
-  background: #e3f8e9;
-  max-width: 500px;
-  padding: 25px;
-  border-radius: 20px;
-  margin: auto;
+  background:#e3f8e9;
+  max-width:500px;
+  padding:25px;
+  border-radius:20px;
+  margin:auto;
 }
 
 .animal {
-  font-size: 5rem;
-  cursor: pointer;
-  display: inline-block;
-  margin: 15px;
+  font-size:5rem;
+  cursor:pointer;
+  display:inline-block;
+  margin:15px;
 }
+
+/* COLOURS AND SHAPES ADVENTURE */
+
+.colour-shape-section {
+  background:linear-gradient(135deg,#fff0d9,#f0e5ff);
+}
+
+.colour-shape-card {
+  background:white;
+  max-width:600px;
+  margin:20px auto;
+  padding:25px 15px;
+  border-radius:24px;
+  box-shadow:0 5px 18px #00000015;
+}
+
+.colour-shape-display {
+  min-height:190px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:15px auto;
+}
+
+.colour-circle {
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  border:5px solid #ffffff;
+  box-shadow:0 4px 15px #00000020;
+}
+
+.visual-shape {
+  width:145px;
+  height:145px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:6rem;
+  color:#713bd1;
+}
+
+.shape-circle {
+  border-radius:50%;
+  background:#8b5cf6;
+}
+
+.shape-square {
+  width:125px;
+  height:125px;
+  background:#36a9e1;
+}
+
+.shape-triangle {
+  width:0;
+  height:0;
+  border-left:75px solid transparent;
+  border-right:75px solid transparent;
+  border-bottom:140px solid #ffb52e;
+}
+
+.shape-rectangle {
+  width:170px;
+  height:100px;
+  background:#36c98b;
+}
+
+.shape-oval {
+  width:170px;
+  height:110px;
+  border-radius:50%;
+  background:#f078a8;
+}
+
+.shape-star {
+  font-size:9rem;
+  color:#f5b700;
+  line-height:1;
+}
+
+.shape-heart {
+  font-size:9rem;
+  color:#f05b78;
+  line-height:1;
+}
+
+.shape-diamond {
+  width:100px;
+  height:100px;
+  background:#36a9e1;
+  transform:rotate(45deg);
+  border-radius:8px;
+}
+
+.colour-shape-name {
+  color:#713bd1;
+  font-size:1.8rem;
+  font-weight:bold;
+  margin:12px;
+}
+
+.colour-shape-description {
+  line-height:1.7;
+  margin:12px auto;
+}
+
+.colour-grid,.shape-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+  gap:10px;
+  max-width:650px;
+  margin:20px auto;
+}
+
+.colour-button,.shape-button {
+  background:white;
+  color:#5426a5;
+  border:2px solid #e3d5ff;
+  border-radius:14px;
+  padding:12px 5px;
+  margin:0;
+  min-height:65px;
+}
+
+.colour-button.active,.shape-button.active {
+  background:#713bd1;
+  color:white;
+}
+
+.colour-dot {
+  display:block;
+  width:27px;
+  height:27px;
+  border-radius:50%;
+  margin:0 auto 6px;
+  border:1px solid #ddd;
+}
+
+.shape-mini {
+  display:block;
+  font-size:1.7rem;
+  margin-bottom:4px;
+}
+
+.colour-quiz {
+  background:white;
+  max-width:550px;
+  margin:20px auto;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 4px 15px #00000012;
+}
+
+.colour-quiz h3 { margin:18px 0; }
+
+.colour-answer {
+  display:block;
+  width:100%;
+  max-width:300px;
+  margin:10px auto;
+  background:#f0e7ff;
+  color:#5426a5;
+}
+
+.colour-answer:disabled { opacity:.7; cursor:default; }
 
 footer {
-  background: #5426a5;
-  color: white;
-  text-align: center;
-  padding: 22px;
-  margin-top: 30px;
+  background:#5426a5;
+  color:white;
+  text-align:center;
+  padding:22px;
+  margin-top:30px;
 }
 
-@media (max-width: 480px) {
-  .hero h2 {
-    font-size: 1.6rem;
-  }
-
-  header h1 {
-    font-size: 1.6rem;
-  }
-
-  .number-grid {
-    gap: 5px;
-  }
-
-  .number-button {
-    font-size: .85rem;
-    padding: 9px 1px;
-  }
+@media(max-width:480px) {
+  .hero h2 { font-size:1.6rem; }
+  header h1 { font-size:1.6rem; }
+  .number-grid { gap:5px; }
+  .number-button { font-size:.85rem; padding:9px 1px; }
+  .colour-grid,.shape-grid { grid-template-columns:repeat(3,1fr); }
 }
 </style>
 </head>
@@ -373,6 +453,7 @@ footer {
   <a href="#activities">Activities</a>
   <a href="#abc">ABC Adventure</a>
   <a href="#numbers">123 Adventure</a>
+  <a href="#coloursShapes">Colours & Shapes</a>
   <a href="#quiz">Quiz</a>
 </nav>
 
@@ -380,13 +461,11 @@ footer {
   <h2>Welcome to Wonder Tots! 🎉</h2>
   <p>
     A magical place where little learners explore letters,
-    numbers, animals and exciting adventures.
+    numbers, colours, shapes, animals and exciting adventures.
   </p>
-
   <button onclick="document.getElementById('abc').scrollIntoView({behavior:'smooth'})">
     Start Learning
   </button>
-
   <button onclick="document.getElementById('numbers').scrollIntoView({behavior:'smooth'})">
     Learn Numbers
   </button>
@@ -394,7 +473,6 @@ footer {
 
 <section id="activities">
   <h2>✨ Explore Our Learning World</h2>
-
   <div class="activities">
 
     <a class="activity-link" href="#abc">
@@ -419,11 +497,13 @@ footer {
       <p>Meet amazing animals.</p>
     </div>
 
-    <div class="activity">
-      <div class="emoji">🎨</div>
-      <h3>Colours & Shapes</h3>
-      <p>Explore colours and shapes.</p>
-    </div>
+    <a class="activity-link" href="#coloursShapes">
+      <div class="activity">
+        <div class="emoji">🎨</div>
+        <h3>Colours & Shapes</h3>
+        <p>Explore colours and shapes.</p>
+      </div>
+    </a>
 
   </div>
 </section>
@@ -435,26 +515,18 @@ footer {
   <p>Let's learn our letters from A to Z!</p>
 
   <div class="lesson-card">
-
     <div class="progress">
       <div class="progress-fill" id="progressFill"></div>
     </div>
 
     <div class="big-letter" id="letter">A a</div>
     <div class="lesson-picture" id="picture">🍎</div>
-
     <h3 id="word">A is for Apple</h3>
+    <p id="description">Apple begins with the letter A. Can you say A?</p>
 
-    <p id="description">
-      Apple begins with the letter A. Can you say A?
-    </p>
-
-    <button onclick="speakLesson()">🔊 Listen</button>
-    <br>
-
+    <button onclick="speakLesson()">🔊 Listen</button><br>
     <button onclick="previousLetter()">⬅ Previous</button>
     <button onclick="nextLetter()">Next ➡</button>
-
   </div>
 
   <h3 style="margin-top:30px;">Choose a Letter</h3>
@@ -464,117 +536,120 @@ footer {
 <!-- 123 ADVENTURE -->
 
 <section id="numbers" class="number-section">
-
   <h2>🔢 123 Adventure</h2>
-
-  <p>
-    Welcome to our counting world!
-    Let's discover numbers from 1 to 100.
-  </p>
+  <p>Welcome to our counting world! Let's discover numbers from 1 to 100.</p>
 
   <div class="number-card">
-
     <div class="progress">
       <div class="progress-fill" id="numberProgress"></div>
     </div>
 
     <div class="number-display" id="numberDisplay">1</div>
-
     <div class="number-name" id="numberName">One</div>
-
     <h3 id="numberTitle">Let's count!</h3>
-
     <div class="number-picture" id="numberPicture"></div>
+    <p class="number-description" id="numberDescription">This is number 1. One apple!</p>
 
-    <p class="number-description" id="numberDescription">
-      This is number 1. One apple!
-    </p>
-
-    <button onclick="speakNumber()">🔊 Listen</button>
-
-    <br>
-
+    <button onclick="speakNumber()">🔊 Listen</button><br>
     <button onclick="previousNumber()">⬅ Previous</button>
     <button onclick="nextNumber()">Next ➡</button>
-
   </div>
 
   <h3 style="margin-top:30px;">Choose Your Number</h3>
-
   <p>Tap any number to start learning.</p>
-
   <div class="number-grid" id="numberGrid"></div>
-
 </section>
 
 <!-- NUMBER COUNTING QUIZ -->
 
 <section id="numberGame">
-
   <h2>⭐ Number Challenge</h2>
-
   <p>Let's see how well you know your numbers!</p>
 
   <div class="number-quiz">
-
-    <p class="star-count">
-      ⭐ Stars: <span id="numberStars">0</span>
-    </p>
-
+    <p class="star-count">⭐ Stars: <span id="numberStars">0</span></p>
     <p id="numberQuestionCount">Question 1 of 6</p>
-
-    <h3 id="numberQuestion">
-      What number comes after 4?
-    </h3>
-
+    <h3 id="numberQuestion">What number comes after 4?</h3>
     <div id="numberAnswers"></div>
-
     <p id="numberFeedback"></p>
 
-    <button
-      onclick="nextNumberQuestion()"
-      id="nextNumberQuestion"
-      style="display:none;">
+    <button onclick="nextNumberQuestion()" id="nextNumberQuestion" style="display:none;">
       Next Question
     </button>
+    <button onclick="restartNumberQuiz()">Restart Challenge</button>
+  </div>
+</section>
 
-    <button onclick="restartNumberQuiz()">
-      Restart Challenge
-    </button>
+<!-- COLOURS AND SHAPES ADVENTURE -->
 
+<section id="coloursShapes" class="colour-shape-section">
+  <h2>🎨 Colours & Shapes Adventure</h2>
+  <p>Let's discover beautiful colours and fun shapes!</p>
+
+  <div class="colour-shape-card">
+    <div class="progress">
+      <div class="progress-fill" id="colourShapeProgress"></div>
+    </div>
+
+    <h3 id="colourShapeCategory">Let's learn our colours!</h3>
+
+    <div class="colour-shape-display" id="colourShapePicture">
+      <div class="colour-circle" style="background:red;"></div>
+    </div>
+
+    <div class="colour-shape-name" id="colourShapeName">Red</div>
+    <p class="colour-shape-description" id="colourShapeDescription">
+      Red is a bright colour. Apples can be red!
+    </p>
+
+    <button onclick="speakColourShape()">🔊 Listen</button><br>
+    <button onclick="previousColourShape()">⬅ Previous</button>
+    <button onclick="nextColourShape()">Next ➡</button>
   </div>
 
+  <h3 style="margin-top:30px;">🌈 Choose a Colour</h3>
+  <div class="colour-grid" id="colourGrid"></div>
+
+  <h3 style="margin-top:30px;">⭐ Choose a Shape</h3>
+  <div class="shape-grid" id="shapeGrid"></div>
+</section>
+
+<!-- COLOUR AND SHAPE CHALLENGE -->
+
+<section id="colourGame">
+  <h2>🌟 Colour & Shape Challenge</h2>
+  <p>Look carefully and choose the correct answer!</p>
+
+  <div class="colour-quiz">
+    <p class="star-count">⭐ Stars: <span id="colourStars">0</span></p>
+    <p id="colourQuestionCount">Question 1 of 8</p>
+    <h3 id="colourQuestion">Which one is red?</h3>
+    <div id="colourAnswers"></div>
+    <p id="colourFeedback"></p>
+
+    <button onclick="nextColourQuestion()" id="nextColourQuestion" style="display:none;">
+      Next Question
+    </button>
+    <button onclick="restartColourQuiz()">Restart Challenge</button>
+  </div>
 </section>
 
 <!-- EXISTING ABC QUIZ -->
 
 <section id="quiz">
-
   <h2>⭐ Little Learners Quiz</h2>
 
   <div class="quiz-card">
-
-    <p class="star-count">
-      ⭐ Stars: <span id="stars">0</span>
-    </p>
-
+    <p class="star-count">⭐ Stars: <span id="stars">0</span></p>
     <p id="questionNumber">Question 1 of 8</p>
-
     <h3 id="question">Which letter begins Apple?</h3>
-
     <div id="answers"></div>
-
     <p id="feedback"></p>
 
-    <button
-      onclick="nextQuestion()"
-      id="nextQuestionButton"
-      style="display:none;">
+    <button onclick="nextQuestion()" id="nextQuestionButton" style="display:none;">
       Next Question
     </button>
-
     <button onclick="restartQuiz()">Restart Quiz</button>
-
   </div>
 </section>
 
@@ -582,17 +657,11 @@ footer {
 
 <section>
   <h2>🐮 Animal Fun</h2>
-
   <div class="animal-game">
-
     <p>Tap the cow and listen to its sound!</p>
-
     <div class="animal" onclick="moo()">🐮</div>
-
     <p id="animalMessage">What sound does a cow make?</p>
-
     <button onclick="moo()">Hear the Sound</button>
-
   </div>
 </section>
 
@@ -606,7 +675,6 @@ footer {
 /* AUDIO SYSTEM */
 
 function speak(text) {
-
   if (!("speechSynthesis" in window)) {
     alert("Sorry, audio is not supported by this browser.");
     return;
@@ -615,20 +683,15 @@ function speak(text) {
   window.speechSynthesis.cancel();
 
   const message = new SpeechSynthesisUtterance(text);
-
   message.rate = 0.85;
   message.pitch = 1.15;
 
   const voices = window.speechSynthesis.getVoices();
-
   const preferredVoice = voices.find(voice =>
     /female|samantha|zira|karen|susan|aria|jenny/i.test(voice.name)
   );
 
-  if (preferredVoice) {
-    message.voice = preferredVoice;
-  }
-
+  if (preferredVoice) message.voice = preferredVoice;
   window.speechSynthesis.speak(message);
 }
 
@@ -667,35 +730,28 @@ let currentLetter = 0;
 let stars = 0;
 
 function displayLetter() {
-
   const item = letters[currentLetter];
 
   document.getElementById("letter").textContent =
     item[0] + " " + item[0].toLowerCase();
-
   document.getElementById("picture").textContent = item[2];
-
   document.getElementById("word").textContent =
     item[0] + " is for " + item[1];
-
   document.getElementById("description").textContent = item[3];
 
   document.getElementById("progressFill").style.width =
     ((currentLetter + 1) / letters.length * 100) + "%";
 
-  document.querySelectorAll(".letter-button").forEach((button, index) => {
-    button.classList.toggle("active", index === currentLetter);
+  document.querySelectorAll(".letter-button").forEach((button,index) => {
+    button.classList.toggle("active",index === currentLetter);
   });
 }
 
 function createLetterGrid() {
-
   const grid = document.getElementById("letterGrid");
 
-  letters.forEach((item, index) => {
-
+  letters.forEach((item,index) => {
     const button = document.createElement("button");
-
     button.className = "letter-button";
     button.textContent = item[0];
 
@@ -705,7 +761,6 @@ function createLetterGrid() {
     };
 
     grid.appendChild(button);
-
   });
 }
 
@@ -742,28 +797,17 @@ const tens = [
 ];
 
 function numberToWords(number) {
-
-  if (number < 10) {
-    return ones[number];
-  }
-
-  if (number < 20) {
-    return teens[number - 10];
-  }
+  if (number < 10) return ones[number];
+  if (number < 20) return teens[number - 10];
 
   if (number < 100) {
-
     const ten = Math.floor(number / 10);
     const remainder = number % 10;
-
     return tens[ten] +
       (remainder ? "-" + ones[remainder].toLowerCase() : "");
   }
 
-  if (number === 100) {
-    return "One Hundred";
-  }
-
+  if (number === 100) return "One Hundred";
   return "";
 }
 
@@ -773,15 +817,10 @@ let currentNumber = 1;
 let numberStars = 0;
 
 function displayNumber() {
-
   const name = numberToWords(currentNumber);
 
-  document.getElementById("numberDisplay").textContent =
-    currentNumber;
-
-  document.getElementById("numberName").textContent =
-    name;
-
+  document.getElementById("numberDisplay").textContent = currentNumber;
+  document.getElementById("numberName").textContent = name;
   document.getElementById("numberTitle").textContent =
     "Number " + currentNumber + " is " + name + "!";
 
@@ -792,435 +831,619 @@ function displayNumber() {
   document.getElementById("numberProgress").style.width =
     currentNumber + "%";
 
-  /* Show the correct quantity of apples */
-
   const picture = document.getElementById("numberPicture");
-
   picture.innerHTML = "";
 
   for (let i = 0; i < currentNumber; i++) {
-
     const apple = document.createElement("span");
-
     apple.className = "count-item";
     apple.textContent = "🍎";
-
     picture.appendChild(apple);
-
   }
 
-  /* Highlight selected number */
-
-  document.querySelectorAll(".number-button").forEach((button, index) => {
-
-    button.classList.toggle(
-      "active",
-      index + 1 === currentNumber
-    );
-
+  document.querySelectorAll(".number-button").forEach((button,index) => {
+    button.classList.toggle("active",index + 1 === currentNumber);
   });
-
 }
 
 function createNumberGrid() {
-
   const grid = document.getElementById("numberGrid");
 
   for (let i = 1; i <= 100; i++) {
-
     const button = document.createElement("button");
-
     button.className = "number-button";
     button.textContent = i;
 
     button.onclick = () => {
-
       currentNumber = i;
       displayNumber();
-
     };
 
     grid.appendChild(button);
-
   }
-
 }
 
 function nextNumber() {
-
-  if (currentNumber < 100) {
-    currentNumber++;
-  } else {
-    currentNumber = 1;
-  }
-
+  currentNumber = currentNumber < 100 ? currentNumber + 1 : 1;
   displayNumber();
-
 }
 
 function previousNumber() {
-
-  if (currentNumber > 1) {
-    currentNumber--;
-  } else {
-    currentNumber = 100;
-  }
-
+  currentNumber = currentNumber > 1 ? currentNumber - 1 : 100;
   displayNumber();
-
 }
 
 function speakNumber() {
-
   const name = numberToWords(currentNumber);
-
-  speak(
-    "Number " + currentNumber + ". " +
-    name + ". Let's count " +
-    currentNumber + " apples!"
-  );
-
+  speak("Number " + currentNumber + ". " + name +
+    ". Let's count " + currentNumber + " apples!");
 }
 
 /* NUMBER CHALLENGE */
 
 const numberQuestions = [
-
-  {
-    question: "What number comes after 4?",
-    answers: ["3", "5", "6"],
-    correct: "5"
-  },
-
-  {
-    question: "What number comes before 10?",
-    answers: ["9", "11", "8"],
-    correct: "9"
-  },
-
-  {
-    question: "How many apples are there? 🍎🍎🍎",
-    answers: ["2", "3", "4"],
-    correct: "3"
-  },
-
-  {
-    question: "Which number comes after 19?",
-    answers: ["18", "20", "21"],
-    correct: "20"
-  },
-
-  {
-    question: "What is the number name for 5?",
-    answers: ["Three", "Four", "Five"],
-    correct: "Five"
-  },
-
-  {
-    question: "Which number comes before 100?",
-    answers: ["98", "99", "101"],
-    correct: "99"
-  }
-
+  {question:"What number comes after 4?",answers:["3","5","6"],correct:"5"},
+  {question:"What number comes before 10?",answers:["9","11","8"],correct:"9"},
+  {question:"How many apples are there? 🍎🍎🍎",answers:["2","3","4"],correct:"3"},
+  {question:"Which number comes after 19?",answers:["18","20","21"],correct:"20"},
+  {question:"What is the number name for 5?",answers:["Three","Four","Five"],correct:"Five"},
+  {question:"Which number comes before 100?",answers:["98","99","101"],correct:"99"}
 ];
 
 let numberQuestionIndex = 0;
 let numberAnswered = false;
 
 function showNumberQuestion() {
-
   numberAnswered = false;
-
   const item = numberQuestions[numberQuestionIndex];
 
   document.getElementById("numberQuestionCount").textContent =
     "Question " + (numberQuestionIndex + 1) +
     " of " + numberQuestions.length;
 
-  document.getElementById("numberQuestion").textContent =
-    item.question;
-
+  document.getElementById("numberQuestion").textContent = item.question;
   document.getElementById("numberFeedback").textContent = "";
-
-  document.getElementById("nextNumberQuestion").style.display =
-    "none";
+  document.getElementById("nextNumberQuestion").style.display = "none";
 
   const answerArea = document.getElementById("numberAnswers");
-
   answerArea.innerHTML = "";
 
   item.answers.forEach(answer => {
-
     const button = document.createElement("button");
-
     button.className = "number-answer";
     button.textContent = answer;
-
     button.onclick = () => checkNumberAnswer(answer);
-
     answerArea.appendChild(button);
-
   });
-
 }
 
 function checkNumberAnswer(answer) {
-
   if (numberAnswered) return;
-
   numberAnswered = true;
 
   const correct = numberQuestions[numberQuestionIndex].correct;
-
   const feedback = document.getElementById("numberFeedback");
 
   if (answer === correct) {
-
     feedback.textContent = "🎉 Excellent! You got it right!";
-
     numberStars++;
-
-    document.getElementById("numberStars").textContent =
-      numberStars;
-
+    document.getElementById("numberStars").textContent = numberStars;
   } else {
-
-    feedback.textContent =
-      "Good try! The correct answer is " + correct + ".";
-
+    feedback.textContent = "Good try! The correct answer is " + correct + ".";
   }
 
   document.querySelectorAll(".number-answer").forEach(button => {
     button.disabled = true;
   });
 
-  document.getElementById("nextNumberQuestion").style.display =
-    "inline-block";
-
+  document.getElementById("nextNumberQuestion").style.display = "inline-block";
 }
 
 function nextNumberQuestion() {
-
   if (numberQuestionIndex < numberQuestions.length - 1) {
-
     numberQuestionIndex++;
-
     showNumberQuestion();
-
   } else {
-
     document.getElementById("numberQuestion").textContent =
       "🎉 Amazing! You completed the Number Challenge!";
-
     document.getElementById("numberAnswers").innerHTML =
       "<p>Keep practising your numbers. You are doing great!</p>";
-
     document.getElementById("numberFeedback").textContent =
       "Your stars: " + numberStars;
-
-    document.getElementById("nextNumberQuestion").style.display =
-      "none";
-
+    document.getElementById("nextNumberQuestion").style.display = "none";
   }
-
 }
 
 function restartNumberQuiz() {
-
   numberQuestionIndex = 0;
-
   showNumberQuestion();
+}
 
+/* COLOURS AND SHAPES ADVENTURE */
+
+const colours = [
+  {
+    name:"Red",
+    value:"#ff3333",
+    description:"Red is a bright colour. Apples and strawberries can be red!"
+  },
+  {
+    name:"Blue",
+    value:"#2589e8",
+    description:"Blue is the colour of the sky on a clear day."
+  },
+  {
+    name:"Yellow",
+    value:"#ffd500",
+    description:"Yellow is a bright colour. The sun looks yellow!"
+  },
+  {
+    name:"Green",
+    value:"#26a65b",
+    description:"Green is the colour of many leaves and plants."
+  },
+  {
+    name:"Orange",
+    value:"#ff8c24",
+    description:"Orange is the colour of a juicy orange fruit."
+  },
+  {
+    name:"Purple",
+    value:"#8e44ad",
+    description:"Purple is a lovely colour. Some flowers are purple."
+  },
+  {
+    name:"Pink",
+    value:"#f078a8",
+    description:"Pink is a pretty colour. Some flowers are pink."
+  },
+  {
+    name:"Black",
+    value:"#222222",
+    description:"Black is a dark colour. Many shoes are black."
+  },
+  {
+    name:"White",
+    value:"#ffffff",
+    description:"White is a light colour. Clouds can look white."
+  },
+  {
+    name:"Brown",
+    value:"#8b5a2b",
+    description:"Brown is the colour of tree trunks and chocolate."
+  }
+];
+
+const shapes = [
+  {
+    name:"Circle",
+    className:"shape-circle",
+    symbol:"",
+    description:"A circle is round. A wheel is shaped like a circle."
+  },
+  {
+    name:"Square",
+    className:"shape-square",
+    symbol:"",
+    description:"A square has four equal sides and four corners."
+  },
+  {
+    name:"Triangle",
+    className:"shape-triangle",
+    symbol:"",
+    description:"A triangle has three sides and three corners."
+  },
+  {
+    name:"Rectangle",
+    className:"shape-rectangle",
+    symbol:"",
+    description:"A rectangle has four sides. Two sides are longer."
+  },
+  {
+    name:"Oval",
+    className:"shape-oval",
+    symbol:"",
+    description:"An oval is like a stretched circle. An egg is oval-shaped."
+  },
+  {
+    name:"Star",
+    className:"shape-star",
+    symbol:"★",
+    description:"A star has points. We can see stars in the night sky."
+  },
+  {
+    name:"Heart",
+    className:"shape-heart",
+    symbol:"♥",
+    description:"A heart is a lovely shape often used to show love."
+  },
+  {
+    name:"Diamond",
+    className:"shape-diamond",
+    symbol:"",
+    description:"A diamond shape looks like a square tilted on its side."
+  }
+];
+
+let currentColourShape = 0;
+let currentShapeType = "colour";
+
+function displayColourShape() {
+  const isColour = currentShapeType === "colour";
+  const item = isColour ? colours[currentColourShape] : shapes[currentColourShape];
+
+  document.getElementById("colourShapeCategory").textContent =
+    isColour ? "Let's learn our colours!" : "Let's learn our shapes!";
+
+  document.getElementById("colourShapeName").textContent = item.name;
+  document.getElementById("colourShapeDescription").textContent =
+    item.description;
+
+  const picture = document.getElementById("colourShapePicture");
+  picture.innerHTML = "";
+
+  if (isColour) {
+    const circle = document.createElement("div");
+    circle.className = "colour-circle";
+    circle.style.backgroundColor = item.value;
+
+    if (item.name === "White") {
+      circle.style.border = "3px solid #cccccc";
+    }
+
+    picture.appendChild(circle);
+  } else {
+    const shape = document.createElement("div");
+    shape.className = "visual-shape " + item.className;
+
+    if (item.symbol) {
+      shape.textContent = item.symbol;
+    }
+
+    picture.appendChild(shape);
+  }
+
+  const total = colours.length + shapes.length;
+  const position = isColour
+    ? currentColourShape + 1
+    : colours.length + currentColourShape + 1;
+
+  document.getElementById("colourShapeProgress").style.width =
+    (position / total * 100) + "%";
+
+  document.querySelectorAll(".colour-button").forEach((button,index) => {
+    button.classList.toggle(
+      "active",
+      isColour && index === currentColourShape
+    );
+  });
+
+  document.querySelectorAll(".shape-button").forEach((button,index) => {
+    button.classList.toggle(
+      "active",
+      !isColour && index === currentColourShape
+    );
+  });
+}
+
+function createColourGrid() {
+  const grid = document.getElementById("colourGrid");
+
+  colours.forEach((item,index) => {
+    const button = document.createElement("button");
+    button.className = "colour-button";
+
+    const dot = document.createElement("span");
+    dot.className = "colour-dot";
+    dot.style.backgroundColor = item.value;
+
+    if (item.name === "White") {
+      dot.style.border = "2px solid #cccccc";
+    }
+
+    button.appendChild(dot);
+    button.appendChild(document.createTextNode(item.name));
+
+    button.onclick = () => {
+      currentShapeType = "colour";
+      currentColourShape = index;
+      displayColourShape();
+    };
+
+    grid.appendChild(button);
+  });
+}
+
+function createShapeGrid() {
+  const grid = document.getElementById("shapeGrid");
+
+  shapes.forEach((item,index) => {
+    const button = document.createElement("button");
+    button.className = "shape-button";
+
+    const symbol = document.createElement("span");
+    symbol.className = "shape-mini";
+
+    const symbols = ["●","■","▲","▰","⬭","★","♥","◆"];
+    symbol.textContent = symbols[index];
+
+    button.appendChild(symbol);
+    button.appendChild(document.createTextNode(item.name));
+
+    button.onclick = () => {
+      currentShapeType = "shape";
+      currentColourShape = index;
+      displayColourShape();
+    };
+
+    grid.appendChild(button);
+  });
+}
+
+function nextColourShape() {
+  const total = currentShapeType === "colour" ? colours.length : shapes.length;
+
+  if (currentColourShape < total - 1) {
+    currentColourShape++;
+  } else {
+    currentColourShape = 0;
+  }
+
+  displayColourShape();
+}
+
+function previousColourShape() {
+  const total = currentShapeType === "colour" ? colours.length : shapes.length;
+
+  if (currentColourShape > 0) {
+    currentColourShape--;
+  } else {
+    currentColourShape = total - 1;
+  }
+
+  displayColourShape();
+}
+
+function speakColourShape() {
+  const isColour = currentShapeType === "colour";
+  const item = isColour ? colours[currentColourShape] : shapes[currentColourShape];
+
+  speak(
+    isColour
+      ? item.name + ". " + item.description
+      : item.name + ". " + item.description
+  );
+}
+
+/* COLOUR AND SHAPE CHALLENGE */
+
+const colourQuestions = [
+  {
+    question:"Which colour is the colour of a strawberry?",
+    answers:["Blue","Red","Green"],
+    correct:"Red"
+  },
+  {
+    question:"Which colour is the sky on a clear day?",
+    answers:["Blue","Brown","Pink"],
+    correct:"Blue"
+  },
+  {
+    question:"Which colour is a ripe banana?",
+    answers:["Purple","Black","Yellow"],
+    correct:"Yellow"
+  },
+  {
+    question:"Which shape has three sides?",
+    answers:["Circle","Triangle","Square"],
+    correct:"Triangle"
+  },
+  {
+    question:"Which shape has four equal sides?",
+    answers:["Square","Oval","Circle"],
+    correct:"Square"
+  },
+  {
+    question:"Which shape is round like a wheel?",
+    answers:["Rectangle","Triangle","Circle"],
+    correct:"Circle"
+  },
+  {
+    question:"Which shape looks like a heart? ♥",
+    answers:["Heart","Diamond","Oval"],
+    correct:"Heart"
+  },
+  {
+    question:"Which colour are many leaves?",
+    answers:["Green","Pink","Purple"],
+    correct:"Green"
+  }
+];
+
+let colourQuestionIndex = 0;
+let colourAnswered = false;
+let colourStars = 0;
+
+function showColourQuestion() {
+  colourAnswered = false;
+  const item = colourQuestions[colourQuestionIndex];
+
+  document.getElementById("colourQuestionCount").textContent =
+    "Question " + (colourQuestionIndex + 1) +
+    " of " + colourQuestions.length;
+
+  document.getElementById("colourQuestion").textContent = item.question;
+  document.getElementById("colourFeedback").textContent = "";
+  document.getElementById("nextColourQuestion").style.display = "none";
+
+  const answerArea = document.getElementById("colourAnswers");
+  answerArea.innerHTML = "";
+
+  item.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.className = "colour-answer";
+    button.textContent = answer;
+    button.onclick = () => checkColourAnswer(answer);
+    answerArea.appendChild(button);
+  });
+}
+
+function checkColourAnswer(answer) {
+  if (colourAnswered) return;
+  colourAnswered = true;
+
+  const correct = colourQuestions[colourQuestionIndex].correct;
+  const feedback = document.getElementById("colourFeedback");
+
+  if (answer === correct) {
+    feedback.textContent = "🎉 Wonderful! That is correct!";
+    colourStars++;
+    document.getElementById("colourStars").textContent = colourStars;
+  } else {
+    feedback.textContent = "Good try! The correct answer is " + correct + ".";
+  }
+
+  document.querySelectorAll(".colour-answer").forEach(button => {
+    button.disabled = true;
+  });
+
+  document.getElementById("nextColourQuestion").style.display = "inline-block";
+}
+
+function nextColourQuestion() {
+  if (colourQuestionIndex < colourQuestions.length - 1) {
+    colourQuestionIndex++;
+    showColourQuestion();
+  } else {
+    document.getElementById("colourQuestion").textContent =
+      "🎉 Amazing! You completed the Colours & Shapes Challenge!";
+
+    document.getElementById("colourAnswers").innerHTML =
+      "<p>Keep exploring colours and shapes. You are doing wonderfully!</p>";
+
+    document.getElementById("colourFeedback").textContent =
+      "Your stars: " + colourStars;
+
+    document.getElementById("nextColourQuestion").style.display = "none";
+  }
+}
+
+function restartColourQuiz() {
+  colourQuestionIndex = 0;
+  showColourQuestion();
 }
 
 /* EXISTING ABC QUIZ */
 
 const questions = [
-
-  {
-    question: "Which letter begins Apple?",
-    answers: ["A", "B", "C"],
-    correct: "A"
-  },
-
-  {
-    question: "Which letter begins Ball?",
-    answers: ["D", "B", "F"],
-    correct: "B"
-  },
-
-  {
-    question: "Which animal begins with C?",
-    answers: ["Dog", "Lion", "Cat"],
-    correct: "Cat"
-  },
-
-  {
-    question: "Which letter begins Elephant?",
-    answers: ["E", "F", "G"],
-    correct: "E"
-  },
-
-  {
-    question: "Which animal begins with L?",
-    answers: ["Rabbit", "Lion", "Fish"],
-    correct: "Lion"
-  },
-
-  {
-    question: "Which letter begins Zebra?",
-    answers: ["X", "Y", "Z"],
-    correct: "Z"
-  },
-
-  {
-    question: "Which letter begins Orange?",
-    answers: ["O", "P", "Q"],
-    correct: "O"
-  },
-
-  {
-    question: "Which animal begins with T?",
-    answers: ["Tiger", "Monkey", "Rabbit"],
-    correct: "Tiger"
-  }
-
+  {question:"Which letter begins Apple?",answers:["A","B","C"],correct:"A"},
+  {question:"Which letter begins Ball?",answers:["D","B","F"],correct:"B"},
+  {question:"Which animal begins with C?",answers:["Dog","Lion","Cat"],correct:"Cat"},
+  {question:"Which letter begins Elephant?",answers:["E","F","G"],correct:"E"},
+  {question:"Which animal begins with L?",answers:["Rabbit","Lion","Fish"],correct:"Lion"},
+  {question:"Which letter begins Zebra?",answers:["X","Y","Z"],correct:"Z"},
+  {question:"Which letter begins Orange?",answers:["O","P","Q"],correct:"O"},
+  {question:"Which animal begins with T?",answers:["Tiger","Monkey","Rabbit"],correct:"Tiger"}
 ];
 
 let questionIndex = 0;
 let answered = false;
 
 function showQuestion() {
-
   answered = false;
-
   const item = questions[questionIndex];
 
   document.getElementById("questionNumber").textContent =
-    "Question " + (questionIndex + 1) +
-    " of " + questions.length;
+    "Question " + (questionIndex + 1) + " of " + questions.length;
 
-  document.getElementById("question").textContent =
-    item.question;
-
+  document.getElementById("question").textContent = item.question;
   document.getElementById("feedback").textContent = "";
-
-  document.getElementById("nextQuestionButton").style.display =
-    "none";
+  document.getElementById("nextQuestionButton").style.display = "none";
 
   const answerArea = document.getElementById("answers");
-
   answerArea.innerHTML = "";
 
   item.answers.forEach(answer => {
-
     const button = document.createElement("button");
-
     button.className = "answer-button";
     button.textContent = answer;
-
     button.onclick = () => checkAnswer(answer);
-
     answerArea.appendChild(button);
-
   });
-
 }
 
 function checkAnswer(answer) {
-
   if (answered) return;
-
   answered = true;
 
   const correct = questions[questionIndex].correct;
-
   const feedback = document.getElementById("feedback");
 
   if (answer === correct) {
-
     feedback.textContent = "🎉 Correct! Well done!";
-
     awardStar();
-
   } else {
-
-    feedback.textContent =
-      "Good try! The correct answer is " + correct + ".";
-
+    feedback.textContent = "Good try! The correct answer is " + correct + ".";
   }
 
-  document.getElementById("nextQuestionButton").style.display =
-    "inline-block";
+  document.querySelectorAll(".answer-button").forEach(button => {
+    button.disabled = true;
+  });
 
+  document.getElementById("nextQuestionButton").style.display = "inline-block";
 }
 
 function nextQuestion() {
-
   if (questionIndex < questions.length - 1) {
-
     questionIndex++;
-
     showQuestion();
-
   } else {
-
     document.getElementById("question").textContent =
       "🎉 You have completed the quiz!";
 
     document.getElementById("answers").innerHTML =
       "<p>Great learning! Come back and play again.</p>";
 
-    document.getElementById("feedback").textContent =
-      "Your stars: " + stars;
-
-    document.getElementById("nextQuestionButton").style.display =
-      "none";
-
+    document.getElementById("feedback").textContent = "Your stars: " + stars;
+    document.getElementById("nextQuestionButton").style.display = "none";
   }
-
 }
 
 function restartQuiz() {
-
   questionIndex = 0;
-
   showQuestion();
-
 }
 
 function awardStar() {
-
   stars++;
-
   document.getElementById("stars").textContent = stars;
-
 }
 
 /* ANIMAL FUN */
 
 function moo() {
-
   document.getElementById("animalMessage").textContent =
     "Moooo! 🐮 A cow says moo!";
 
   speak("Moooo! A cow says moo!");
-
 }
 
 /* START THE WEBSITE */
 
 createLetterGrid();
-
 displayLetter();
 
 showQuestion();
 
 createNumberGrid();
-
 displayNumber();
-
 showNumberQuestion();
+
+createColourGrid();
+createShapeGrid();
+displayColourShape();
+
+showColourQuestion();
 
 </script>
 
