@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,6 +113,12 @@ section h2 {
   margin-bottom: 8px;
 }
 
+.activity-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .lesson-card {
   background: white;
   max-width: 550px;
@@ -177,6 +182,106 @@ section h2 {
   color: white;
 }
 
+/* 123 ADVENTURE */
+
+.number-section {
+  background: linear-gradient(135deg, #e6f5ff, #fff0f8);
+}
+
+.number-card {
+  background: white;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 25px 15px;
+  border-radius: 24px;
+  box-shadow: 0 5px 18px #00000015;
+}
+
+.number-display {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #ed8b25;
+  margin: 10px;
+}
+
+.number-name {
+  font-size: 1.7rem;
+  color: #713bd1;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.number-picture {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 5px;
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #fff9ed;
+  border-radius: 15px;
+}
+
+.count-item {
+  font-size: clamp(16px, 4vw, 27px);
+  line-height: 1.3;
+}
+
+.number-description {
+  line-height: 1.7;
+  margin: 15px auto;
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 7px;
+  max-width: 650px;
+  margin: 20px auto;
+}
+
+.number-button {
+  background: white;
+  color: #713bd1;
+  border: 2px solid #e3d5ff;
+  border-radius: 10px;
+  padding: 10px 2px;
+  font-size: .95rem;
+  margin: 0;
+}
+
+.number-button.active {
+  background: #713bd1;
+  color: white;
+}
+
+.number-quiz {
+  background: white;
+  max-width: 550px;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px #00000012;
+}
+
+.number-quiz h3 {
+  margin: 18px 0;
+}
+
+.number-answer {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 10px auto;
+  background: #e9f4ff;
+  color: #5426a5;
+}
+
+.number-answer:disabled {
+  opacity: .7;
+  cursor: default;
+}
+
 .quiz-card {
   background: white;
   max-width: 550px;
@@ -199,7 +304,8 @@ section h2 {
   color: #5426a5;
 }
 
-#feedback {
+#feedback,
+#numberFeedback {
   font-weight: bold;
   margin: 15px;
   min-height: 24px;
@@ -242,6 +348,15 @@ footer {
   header h1 {
     font-size: 1.6rem;
   }
+
+  .number-grid {
+    gap: 5px;
+  }
+
+  .number-button {
+    font-size: .85rem;
+    padding: 9px 1px;
+  }
 }
 </style>
 </head>
@@ -257,6 +372,7 @@ footer {
   <a href="#home">Home</a>
   <a href="#activities">Activities</a>
   <a href="#abc">ABC Adventure</a>
+  <a href="#numbers">123 Adventure</a>
   <a href="#quiz">Quiz</a>
 </nav>
 
@@ -266,8 +382,13 @@ footer {
     A magical place where little learners explore letters,
     numbers, animals and exciting adventures.
   </p>
+
   <button onclick="document.getElementById('abc').scrollIntoView({behavior:'smooth'})">
     Start Learning
+  </button>
+
+  <button onclick="document.getElementById('numbers').scrollIntoView({behavior:'smooth'})">
+    Learn Numbers
   </button>
 </div>
 
@@ -275,17 +396,22 @@ footer {
   <h2>✨ Explore Our Learning World</h2>
 
   <div class="activities">
-    <div class="activity">
-      <div class="emoji">🔤</div>
-      <h3>ABC Adventure</h3>
-      <p>Discover letters and words.</p>
-    </div>
 
-    <div class="activity">
-      <div class="emoji">🔢</div>
-      <h3>Number Fun</h3>
-      <p>Have fun learning numbers.</p>
-    </div>
+    <a class="activity-link" href="#abc">
+      <div class="activity">
+        <div class="emoji">🔤</div>
+        <h3>ABC Adventure</h3>
+        <p>Discover letters and words.</p>
+      </div>
+    </a>
+
+    <a class="activity-link" href="#numbers">
+      <div class="activity">
+        <div class="emoji">🔢</div>
+        <h3>123 Adventure</h3>
+        <p>Learn numbers from 1 to 100.</p>
+      </div>
+    </a>
 
     <div class="activity">
       <div class="emoji">🦁</div>
@@ -298,59 +424,175 @@ footer {
       <h3>Colours & Shapes</h3>
       <p>Explore colours and shapes.</p>
     </div>
+
   </div>
 </section>
+
+<!-- ABC ADVENTURE -->
 
 <section id="abc">
   <h2>🔤 ABC Adventure</h2>
   <p>Let's learn our letters from A to Z!</p>
 
   <div class="lesson-card">
+
     <div class="progress">
       <div class="progress-fill" id="progressFill"></div>
     </div>
 
     <div class="big-letter" id="letter">A a</div>
     <div class="lesson-picture" id="picture">🍎</div>
+
     <h3 id="word">A is for Apple</h3>
+
     <p id="description">
       Apple begins with the letter A. Can you say A?
     </p>
 
     <button onclick="speakLesson()">🔊 Listen</button>
     <br>
+
     <button onclick="previousLetter()">⬅ Previous</button>
     <button onclick="nextLetter()">Next ➡</button>
+
   </div>
 
   <h3 style="margin-top:30px;">Choose a Letter</h3>
   <div class="letter-grid" id="letterGrid"></div>
 </section>
 
+<!-- 123 ADVENTURE -->
+
+<section id="numbers" class="number-section">
+
+  <h2>🔢 123 Adventure</h2>
+
+  <p>
+    Welcome to our counting world!
+    Let's discover numbers from 1 to 100.
+  </p>
+
+  <div class="number-card">
+
+    <div class="progress">
+      <div class="progress-fill" id="numberProgress"></div>
+    </div>
+
+    <div class="number-display" id="numberDisplay">1</div>
+
+    <div class="number-name" id="numberName">One</div>
+
+    <h3 id="numberTitle">Let's count!</h3>
+
+    <div class="number-picture" id="numberPicture"></div>
+
+    <p class="number-description" id="numberDescription">
+      This is number 1. One apple!
+    </p>
+
+    <button onclick="speakNumber()">🔊 Listen</button>
+
+    <br>
+
+    <button onclick="previousNumber()">⬅ Previous</button>
+    <button onclick="nextNumber()">Next ➡</button>
+
+  </div>
+
+  <h3 style="margin-top:30px;">Choose Your Number</h3>
+
+  <p>Tap any number to start learning.</p>
+
+  <div class="number-grid" id="numberGrid"></div>
+
+</section>
+
+<!-- NUMBER COUNTING QUIZ -->
+
+<section id="numberGame">
+
+  <h2>⭐ Number Challenge</h2>
+
+  <p>Let's see how well you know your numbers!</p>
+
+  <div class="number-quiz">
+
+    <p class="star-count">
+      ⭐ Stars: <span id="numberStars">0</span>
+    </p>
+
+    <p id="numberQuestionCount">Question 1 of 6</p>
+
+    <h3 id="numberQuestion">
+      What number comes after 4?
+    </h3>
+
+    <div id="numberAnswers"></div>
+
+    <p id="numberFeedback"></p>
+
+    <button
+      onclick="nextNumberQuestion()"
+      id="nextNumberQuestion"
+      style="display:none;">
+      Next Question
+    </button>
+
+    <button onclick="restartNumberQuiz()">
+      Restart Challenge
+    </button>
+
+  </div>
+
+</section>
+
+<!-- EXISTING ABC QUIZ -->
+
 <section id="quiz">
+
   <h2>⭐ Little Learners Quiz</h2>
 
   <div class="quiz-card">
-    <p class="star-count">⭐ Stars: <span id="stars">0</span></p>
+
+    <p class="star-count">
+      ⭐ Stars: <span id="stars">0</span>
+    </p>
+
     <p id="questionNumber">Question 1 of 8</p>
+
     <h3 id="question">Which letter begins Apple?</h3>
+
     <div id="answers"></div>
+
     <p id="feedback"></p>
-    <button onclick="nextQuestion()" id="nextQuestionButton" style="display:none;">
+
+    <button
+      onclick="nextQuestion()"
+      id="nextQuestionButton"
+      style="display:none;">
       Next Question
     </button>
+
     <button onclick="restartQuiz()">Restart Quiz</button>
+
   </div>
 </section>
+
+<!-- ANIMAL FUN -->
 
 <section>
   <h2>🐮 Animal Fun</h2>
 
   <div class="animal-game">
+
     <p>Tap the cow and listen to its sound!</p>
+
     <div class="animal" onclick="moo()">🐮</div>
+
     <p id="animalMessage">What sound does a cow make?</p>
+
     <button onclick="moo()">Hear the Sound</button>
+
   </div>
 </section>
 
@@ -360,6 +602,38 @@ footer {
 </footer>
 
 <script>
+
+/* AUDIO SYSTEM */
+
+function speak(text) {
+
+  if (!("speechSynthesis" in window)) {
+    alert("Sorry, audio is not supported by this browser.");
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const message = new SpeechSynthesisUtterance(text);
+
+  message.rate = 0.85;
+  message.pitch = 1.15;
+
+  const voices = window.speechSynthesis.getVoices();
+
+  const preferredVoice = voices.find(voice =>
+    /female|samantha|zira|karen|susan|aria|jenny/i.test(voice.name)
+  );
+
+  if (preferredVoice) {
+    message.voice = preferredVoice;
+  }
+
+  window.speechSynthesis.speak(message);
+}
+
+/* ABC ADVENTURE */
+
 const letters = [
   ["A","Apple","🍎","Apple begins with A. A is for Apple."],
   ["B","Ball","⚽","Ball begins with B. B is for Ball."],
@@ -393,12 +667,14 @@ let currentLetter = 0;
 let stars = 0;
 
 function displayLetter() {
+
   const item = letters[currentLetter];
 
   document.getElementById("letter").textContent =
     item[0] + " " + item[0].toLowerCase();
 
   document.getElementById("picture").textContent = item[2];
+
   document.getElementById("word").textContent =
     item[0] + " is for " + item[1];
 
@@ -413,10 +689,13 @@ function displayLetter() {
 }
 
 function createLetterGrid() {
+
   const grid = document.getElementById("letterGrid");
 
   letters.forEach((item, index) => {
+
     const button = document.createElement("button");
+
     button.className = "letter-button";
     button.textContent = item[0];
 
@@ -426,6 +705,7 @@ function createLetterGrid() {
     };
 
     grid.appendChild(button);
+
   });
 }
 
@@ -439,160 +719,510 @@ function previousLetter() {
   displayLetter();
 }
 
-function speak(text) {
-  if (!("speechSynthesis" in window)) {
-    alert("Sorry, audio is not supported by this browser.");
-    return;
+function speakLesson() {
+  speak(letters[currentLetter][3]);
+}
+
+/* NUMBER WORDS: 1 TO 100 */
+
+const ones = [
+  "", "One", "Two", "Three", "Four",
+  "Five", "Six", "Seven", "Eight", "Nine"
+];
+
+const teens = [
+  "Ten", "Eleven", "Twelve", "Thirteen",
+  "Fourteen", "Fifteen", "Sixteen",
+  "Seventeen", "Eighteen", "Nineteen"
+];
+
+const tens = [
+  "", "", "Twenty", "Thirty", "Forty",
+  "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+];
+
+function numberToWords(number) {
+
+  if (number < 10) {
+    return ones[number];
   }
 
-  window.speechSynthesis.cancel();
+  if (number < 20) {
+    return teens[number - 10];
+  }
 
-  const message = new SpeechSynthesisUtterance(text);
-  message.rate = 0.85;
-  message.pitch = 1.15;
+  if (number < 100) {
 
-  const voices = window.speechSynthesis.getVoices();
-  const preferredVoice = voices.find(voice =>
-    /female|samantha|zira|karen|susan|aria|jenny/i.test(voice.name)
+    const ten = Math.floor(number / 10);
+    const remainder = number % 10;
+
+    return tens[ten] +
+      (remainder ? "-" + ones[remainder].toLowerCase() : "");
+  }
+
+  if (number === 100) {
+    return "One Hundred";
+  }
+
+  return "";
+}
+
+/* 123 ADVENTURE */
+
+let currentNumber = 1;
+let numberStars = 0;
+
+function displayNumber() {
+
+  const name = numberToWords(currentNumber);
+
+  document.getElementById("numberDisplay").textContent =
+    currentNumber;
+
+  document.getElementById("numberName").textContent =
+    name;
+
+  document.getElementById("numberTitle").textContent =
+    "Number " + currentNumber + " is " + name + "!";
+
+  document.getElementById("numberDescription").textContent =
+    "This is number " + currentNumber + ". " +
+    name + ". Let's count " + currentNumber + " apples together!";
+
+  document.getElementById("numberProgress").style.width =
+    currentNumber + "%";
+
+  /* Show the correct quantity of apples */
+
+  const picture = document.getElementById("numberPicture");
+
+  picture.innerHTML = "";
+
+  for (let i = 0; i < currentNumber; i++) {
+
+    const apple = document.createElement("span");
+
+    apple.className = "count-item";
+    apple.textContent = "🍎";
+
+    picture.appendChild(apple);
+
+  }
+
+  /* Highlight selected number */
+
+  document.querySelectorAll(".number-button").forEach((button, index) => {
+
+    button.classList.toggle(
+      "active",
+      index + 1 === currentNumber
+    );
+
+  });
+
+}
+
+function createNumberGrid() {
+
+  const grid = document.getElementById("numberGrid");
+
+  for (let i = 1; i <= 100; i++) {
+
+    const button = document.createElement("button");
+
+    button.className = "number-button";
+    button.textContent = i;
+
+    button.onclick = () => {
+
+      currentNumber = i;
+      displayNumber();
+
+    };
+
+    grid.appendChild(button);
+
+  }
+
+}
+
+function nextNumber() {
+
+  if (currentNumber < 100) {
+    currentNumber++;
+  } else {
+    currentNumber = 1;
+  }
+
+  displayNumber();
+
+}
+
+function previousNumber() {
+
+  if (currentNumber > 1) {
+    currentNumber--;
+  } else {
+    currentNumber = 100;
+  }
+
+  displayNumber();
+
+}
+
+function speakNumber() {
+
+  const name = numberToWords(currentNumber);
+
+  speak(
+    "Number " + currentNumber + ". " +
+    name + ". Let's count " +
+    currentNumber + " apples!"
   );
 
-  if (preferredVoice) {
-    message.voice = preferredVoice;
+}
+
+/* NUMBER CHALLENGE */
+
+const numberQuestions = [
+
+  {
+    question: "What number comes after 4?",
+    answers: ["3", "5", "6"],
+    correct: "5"
+  },
+
+  {
+    question: "What number comes before 10?",
+    answers: ["9", "11", "8"],
+    correct: "9"
+  },
+
+  {
+    question: "How many apples are there? 🍎🍎🍎",
+    answers: ["2", "3", "4"],
+    correct: "3"
+  },
+
+  {
+    question: "Which number comes after 19?",
+    answers: ["18", "20", "21"],
+    correct: "20"
+  },
+
+  {
+    question: "What is the number name for 5?",
+    answers: ["Three", "Four", "Five"],
+    correct: "Five"
+  },
+
+  {
+    question: "Which number comes before 100?",
+    answers: ["98", "99", "101"],
+    correct: "99"
   }
 
-  window.speechSynthesis.speak(message);
+];
+
+let numberQuestionIndex = 0;
+let numberAnswered = false;
+
+function showNumberQuestion() {
+
+  numberAnswered = false;
+
+  const item = numberQuestions[numberQuestionIndex];
+
+  document.getElementById("numberQuestionCount").textContent =
+    "Question " + (numberQuestionIndex + 1) +
+    " of " + numberQuestions.length;
+
+  document.getElementById("numberQuestion").textContent =
+    item.question;
+
+  document.getElementById("numberFeedback").textContent = "";
+
+  document.getElementById("nextNumberQuestion").style.display =
+    "none";
+
+  const answerArea = document.getElementById("numberAnswers");
+
+  answerArea.innerHTML = "";
+
+  item.answers.forEach(answer => {
+
+    const button = document.createElement("button");
+
+    button.className = "number-answer";
+    button.textContent = answer;
+
+    button.onclick = () => checkNumberAnswer(answer);
+
+    answerArea.appendChild(button);
+
+  });
+
 }
 
-function speakLesson() {
-  const item = letters[currentLetter];
-  speak(item[3]);
+function checkNumberAnswer(answer) {
+
+  if (numberAnswered) return;
+
+  numberAnswered = true;
+
+  const correct = numberQuestions[numberQuestionIndex].correct;
+
+  const feedback = document.getElementById("numberFeedback");
+
+  if (answer === correct) {
+
+    feedback.textContent = "🎉 Excellent! You got it right!";
+
+    numberStars++;
+
+    document.getElementById("numberStars").textContent =
+      numberStars;
+
+  } else {
+
+    feedback.textContent =
+      "Good try! The correct answer is " + correct + ".";
+
+  }
+
+  document.querySelectorAll(".number-answer").forEach(button => {
+    button.disabled = true;
+  });
+
+  document.getElementById("nextNumberQuestion").style.display =
+    "inline-block";
+
 }
+
+function nextNumberQuestion() {
+
+  if (numberQuestionIndex < numberQuestions.length - 1) {
+
+    numberQuestionIndex++;
+
+    showNumberQuestion();
+
+  } else {
+
+    document.getElementById("numberQuestion").textContent =
+      "🎉 Amazing! You completed the Number Challenge!";
+
+    document.getElementById("numberAnswers").innerHTML =
+      "<p>Keep practising your numbers. You are doing great!</p>";
+
+    document.getElementById("numberFeedback").textContent =
+      "Your stars: " + numberStars;
+
+    document.getElementById("nextNumberQuestion").style.display =
+      "none";
+
+  }
+
+}
+
+function restartNumberQuiz() {
+
+  numberQuestionIndex = 0;
+
+  showNumberQuestion();
+
+}
+
+/* EXISTING ABC QUIZ */
 
 const questions = [
+
   {
     question: "Which letter begins Apple?",
     answers: ["A", "B", "C"],
     correct: "A"
   },
+
   {
     question: "Which letter begins Ball?",
     answers: ["D", "B", "F"],
     correct: "B"
   },
+
   {
     question: "Which animal begins with C?",
     answers: ["Dog", "Lion", "Cat"],
     correct: "Cat"
   },
+
   {
     question: "Which letter begins Elephant?",
     answers: ["E", "F", "G"],
     correct: "E"
   },
+
   {
     question: "Which animal begins with L?",
     answers: ["Rabbit", "Lion", "Fish"],
     correct: "Lion"
   },
+
   {
     question: "Which letter begins Zebra?",
     answers: ["X", "Y", "Z"],
     correct: "Z"
   },
+
   {
     question: "Which letter begins Orange?",
     answers: ["O", "P", "Q"],
     correct: "O"
   },
+
   {
     question: "Which animal begins with T?",
     answers: ["Tiger", "Monkey", "Rabbit"],
     correct: "Tiger"
   }
+
 ];
 
 let questionIndex = 0;
 let answered = false;
 
 function showQuestion() {
+
   answered = false;
 
   const item = questions[questionIndex];
 
   document.getElementById("questionNumber").textContent =
-    "Question " + (questionIndex + 1) + " of " + questions.length;
+    "Question " + (questionIndex + 1) +
+    " of " + questions.length;
 
-  document.getElementById("question").textContent = item.question;
+  document.getElementById("question").textContent =
+    item.question;
+
   document.getElementById("feedback").textContent = "";
-  document.getElementById("nextQuestionButton").style.display = "none";
+
+  document.getElementById("nextQuestionButton").style.display =
+    "none";
 
   const answerArea = document.getElementById("answers");
+
   answerArea.innerHTML = "";
 
   item.answers.forEach(answer => {
+
     const button = document.createElement("button");
+
     button.className = "answer-button";
     button.textContent = answer;
+
     button.onclick = () => checkAnswer(answer);
+
     answerArea.appendChild(button);
+
   });
+
 }
 
 function checkAnswer(answer) {
+
   if (answered) return;
 
   answered = true;
 
   const correct = questions[questionIndex].correct;
+
   const feedback = document.getElementById("feedback");
 
   if (answer === correct) {
+
     feedback.textContent = "🎉 Correct! Well done!";
+
     awardStar();
+
   } else {
-    feedback.textContent = "Good try! The correct answer is " + correct + ".";
+
+    feedback.textContent =
+      "Good try! The correct answer is " + correct + ".";
+
   }
 
-  document.getElementById("nextQuestionButton").style.display = "inline-block";
+  document.getElementById("nextQuestionButton").style.display =
+    "inline-block";
+
 }
 
 function nextQuestion() {
+
   if (questionIndex < questions.length - 1) {
+
     questionIndex++;
+
     showQuestion();
+
   } else {
+
     document.getElementById("question").textContent =
       "🎉 You have completed the quiz!";
+
     document.getElementById("answers").innerHTML =
       "<p>Great learning! Come back and play again.</p>";
+
     document.getElementById("feedback").textContent =
       "Your stars: " + stars;
-    document.getElementById("nextQuestionButton").style.display = "none";
+
+    document.getElementById("nextQuestionButton").style.display =
+      "none";
+
   }
+
 }
 
 function restartQuiz() {
+
   questionIndex = 0;
+
   showQuestion();
+
 }
 
 function awardStar() {
+
   stars++;
+
   document.getElementById("stars").textContent = stars;
+
 }
 
+/* ANIMAL FUN */
+
 function moo() {
+
   document.getElementById("animalMessage").textContent =
     "Moooo! 🐮 A cow says moo!";
 
   speak("Moooo! A cow says moo!");
+
 }
 
+/* START THE WEBSITE */
+
 createLetterGrid();
+
 displayLetter();
+
 showQuestion();
+
+createNumberGrid();
+
+displayNumber();
+
+showNumberQuestion();
+
 </script>
 
 </body>
-        </html>
-  
+</html>
